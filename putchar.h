@@ -14,10 +14,31 @@
 (NOTBLANK((s)[7]) << 0)\
 )
 
-extern const unsigned char kfont8[][8];
+extern unsigned char kfont8[][8];
+
+/*
+ * initialization functions to queue ASCII art drawings into the buffer
+ *
+ * To emphasize stroke order, I try to use different characters for the
+ * "pixels" that compose different strokes in each kana glyph.
+ */
+extern void hira8x8(void);
 
 extern void kputc8(unsigned int code_point);
 
-extern void* addr_translate_from_code_point(unsigned int code_point);
+enum {
+    HIRA_A,   HIRA_I,   HIRA_U,   HIRA_E,   HIRA_O,
+    HIRA_KA,  HIRA_KI,  HIRA_KU,  HIRA_KE,  HIRA_KO,
+    HIRA_SA,  HIRA_SHI, HIRA_SU,  HIRA_SE,  HIRA_SO,
+    HIRA_TA,  HIRA_CHI, HIRA_TSU, HIRA_TE,  HIRA_TO,
+    HIRA_NA,  HIRA_NI,  HIRA_NU,  HIRA_NE,  HIRA_NO,
+    HIRA_HA,  HIRA_HI,  HIRA_FU,  HIRA_HE,  HIRA_HO,
+    HIRA_MA,  HIRA_MI,  HIRA_MU,  HIRA_ME,  HIRA_MO,
+/*
+ * ... and still more to add yet
+ */
+
+    NUMBER_OF_KANA_LETTERS
+};
 
 #endif
