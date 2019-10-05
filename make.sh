@@ -7,4 +7,4 @@ FLAGS_ANSI="\
     -Wmissing-include-dirs -Wstrict-overflow=1 -Wundef -Wno-unused \
     -Wno-variadic-macros -Wno-parentheses -fdiagnostics-show-option"
 
-gcc $FLAGS_ANSI -o kputc fonts/mono_8x8.c
+gcc $FLAGS_ANSI -o kputc rtok.c fonts/mono_8x8.c
