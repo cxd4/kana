@@ -24,15 +24,50 @@ kputc8(unsigned int code_point)
 void
 hira8x8(void)
 {
-    kfont8[HIRA_A][0] = strtobyte("   |    ");
-    kfont8[HIRA_A][1] = strtobyte("---|--- ");
-    kfont8[HIRA_A][2] = strtobyte("   |    ");
-    kfont8[HIRA_A][3] = strtobyte("  .... .");
-    kfont8[HIRA_A][4] = strtobyte(" . |  . ");
-    kfont8[HIRA_A][5] = strtobyte(".  | . .");
-    kfont8[HIRA_A][6] = strtobyte(".  |.  .");
-    kfont8[HIRA_A][7] = strtobyte(" .. | . ");
+    kfont8[HIRA_A][0] = strtobyte("   |    "); kfont8[HIRA_KA][0] = strtobyte(" |   .. ");
+    kfont8[HIRA_A][1] = strtobyte("---|--- "); kfont8[HIRA_KA][1] = strtobyte(" |     .");
+    kfont8[HIRA_A][2] = strtobyte("   |    "); kfont8[HIRA_KA][2] = strtobyte("-|---  .");
+    kfont8[HIRA_A][3] = strtobyte("  .... ."); kfont8[HIRA_KA][3] = strtobyte(" |   - .");
+    kfont8[HIRA_A][4] = strtobyte(" . |  . "); kfont8[HIRA_KA][4] = strtobyte(" |   -  ");
+    kfont8[HIRA_A][5] = strtobyte(".  | . ."); kfont8[HIRA_KA][5] = strtobyte(" |   -  ");
+    kfont8[HIRA_A][6] = strtobyte(".  |.  ."); kfont8[HIRA_KA][6] = strtobyte("|    -  ");
+    kfont8[HIRA_A][7] = strtobyte(" .. | . "); kfont8[HIRA_KA][7] = strtobyte("|  --   ");
 
+    kfont8[HIRA_I][0] = strtobyte("        "); kfont8[HIRA_KI][0] = strtobyte("    |   ");
+    kfont8[HIRA_I][1] = strtobyte(" (      "); kfont8[HIRA_KI][1] = strtobyte("1111111 ");
+    kfont8[HIRA_I][2] = strtobyte("(     ) "); kfont8[HIRA_KI][2] = strtobyte("     |  ");
+    kfont8[HIRA_I][3] = strtobyte("(      )"); kfont8[HIRA_KI][3] = strtobyte(" 2222222");
+    kfont8[HIRA_I][4] = strtobyte("(      )"); kfont8[HIRA_KI][4] = strtobyte("      | ");
+    kfont8[HIRA_I][5] = strtobyte("(      )"); kfont8[HIRA_KI][5] = strtobyte("*       ");
+    kfont8[HIRA_I][6] = strtobyte(" ( (    "); kfont8[HIRA_KI][6] = strtobyte("*       ");
+    kfont8[HIRA_I][7] = strtobyte("  (     "); kfont8[HIRA_KI][7] = strtobyte(" *****  ");
+
+    kfont8[HIRA_U][0] = strtobyte("  ----- "); kfont8[HIRA_KU][0] = strtobyte("    --- ");
+    kfont8[HIRA_U][1] = strtobyte("        "); kfont8[HIRA_KU][1] = strtobyte("  --     ");
+    kfont8[HIRA_U][2] = strtobyte("  ***** "); kfont8[HIRA_KU][2] = strtobyte(" -      ");
+    kfont8[HIRA_U][3] = strtobyte("**     *"); kfont8[HIRA_KU][3] = strtobyte("-       ");
+    kfont8[HIRA_U][4] = strtobyte("       *"); kfont8[HIRA_KU][4] = strtobyte("-       ");
+    kfont8[HIRA_U][5] = strtobyte("       *"); kfont8[HIRA_KU][5] = strtobyte(" -      ");
+    kfont8[HIRA_U][6] = strtobyte("     ** "); kfont8[HIRA_KU][6] = strtobyte("  --    ");
+    kfont8[HIRA_U][7] = strtobyte(" ****   "); kfont8[HIRA_KU][7] = strtobyte("    --- ");
+
+    kfont8[HIRA_E][0] = strtobyte("    --- "); kfont8[HIRA_KE][0] = strtobyte("      3 ");
+    kfont8[HIRA_E][1] = strtobyte("        "); kfont8[HIRA_KE][1] = strtobyte("1  22232");
+    kfont8[HIRA_E][2] = strtobyte(" ...... "); kfont8[HIRA_KE][2] = strtobyte("1 2   3 ");
+    kfont8[HIRA_E][3] = strtobyte("       ."); kfont8[HIRA_KE][3] = strtobyte("1     3 ");
+    kfont8[HIRA_E][4] = strtobyte("    ... "); kfont8[HIRA_KE][4] = strtobyte("1     3 ");
+    kfont8[HIRA_E][5] = strtobyte("  ...   "); kfont8[HIRA_KE][5] = strtobyte("1     3 ");
+    kfont8[HIRA_E][6] = strtobyte(" .  .  ."); kfont8[HIRA_KE][6] = strtobyte("1     3 ");
+    kfont8[HIRA_E][7] = strtobyte(".    .. "); kfont8[HIRA_KE][7] = strtobyte(" 1  33  ");
+
+    kfont8[HIRA_O][0] = strtobyte("   +  * "); kfont8[HIRA_KO][0] = strtobyte(" 11111  ");
+    kfont8[HIRA_O][1] = strtobyte(" ++++  *"); kfont8[HIRA_KO][1] = strtobyte("      1 ");
+    kfont8[HIRA_O][2] = strtobyte("   +   *"); kfont8[HIRA_KO][2] = strtobyte("        ");
+    kfont8[HIRA_O][3] = strtobyte("  ++++  "); kfont8[HIRA_KO][3] = strtobyte("        ");
+    kfont8[HIRA_O][4] = strtobyte(" + +  + "); kfont8[HIRA_KO][4] = strtobyte("2       ");
+    kfont8[HIRA_O][5] = strtobyte("+  +   +"); kfont8[HIRA_KO][5] = strtobyte("2       ");
+    kfont8[HIRA_O][6] = strtobyte("+ +    +"); kfont8[HIRA_KO][6] = strtobyte(" 2     2");
+    kfont8[HIRA_O][7] = strtobyte(" +   ++ "); kfont8[HIRA_KO][7] = strtobyte("  22222 ");
     return;
 }
 
