@@ -175,6 +175,15 @@ a_to_kana(const char* syllable)
         case 'o':  return HIRA_RO;
         }
         return ERR_BROKEN_ROMAJI;
+    case 'y':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_YA;
+        case 'i':  return ERR_LOST_SYLLABLE;
+        case 'u':  return HIRA_YU;
+        case 'e':  return ERR_LOST_SYLLABLE;
+        case 'o':  return HIRA_YO;
+        }
+        return ERR_BROKEN_ROMAJI;
     }
     return ERR_BROKEN_ROMAJI;
 }

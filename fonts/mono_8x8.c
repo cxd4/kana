@@ -207,6 +207,34 @@ hira8x8(void)
     kfont8[HIRA_MO][6]  = SB(" 3    3 "); kfont8[HIRA_RO][6]  = SB("*     * ");
     kfont8[HIRA_MO][7]  = SB("  3333  "); kfont8[HIRA_RO][7]  = SB(" *****  ");
 
+
+    kfont8[HIRA_YA][0]  = SB("1    3  "); kfont8[HIRA_ya][0]  = SB("        ");
+    kfont8[HIRA_YA][1]  = SB(" 1 2232 "); kfont8[HIRA_ya][1]  = SB("        ");
+    kfont8[HIRA_YA][2]  = SB(" 22  3 2"); kfont8[HIRA_ya][2]  = SB(" 1  3   ");
+    kfont8[HIRA_YA][3]  = SB("21  3  2"); kfont8[HIRA_ya][3]  = SB("  1232  ");
+    kfont8[HIRA_YA][4]  = SB("  1    2"); kfont8[HIRA_ya][4]  = SB("222 3 2 ");
+    kfont8[HIRA_YA][5]  = SB("  1   2 "); kfont8[HIRA_ya][5]  = SB("  1   2 ");
+    kfont8[HIRA_YA][6]  = SB("   1    "); kfont8[HIRA_ya][6]  = SB("   1 2  ");
+    kfont8[HIRA_YA][7]  = SB("   1    "); kfont8[HIRA_ya][7]  = SB("   1    ");
+
+    kfont8[HIRA_YU][0]  = SB("1   2   "); kfont8[HIRA_yu][0]  = SB("        ");
+    kfont8[HIRA_YU][1]  = SB("1  1211 "); kfont8[HIRA_yu][1]  = SB("        ");
+    kfont8[HIRA_YU][2]  = SB("1 1 2  1"); kfont8[HIRA_yu][2]  = SB("    2   ");
+    kfont8[HIRA_YU][3]  = SB("11  2  1"); kfont8[HIRA_yu][3]  = SB("1 1121  ");
+    kfont8[HIRA_YU][4]  = SB("1   2  1"); kfont8[HIRA_yu][4]  = SB("11  2 1 ");
+    kfont8[HIRA_YU][5]  = SB("   2   1"); kfont8[HIRA_yu][5]  = SB("1  2  1 ");
+    kfont8[HIRA_YU][6]  = SB("   2 11 "); kfont8[HIRA_yu][6]  = SB("   2 1  ");
+    kfont8[HIRA_YU][7]  = SB("  2     "); kfont8[HIRA_yu][7]  = SB("  2     ");
+
+    kfont8[HIRA_YO][0]  = SB("    1   "); kfont8[HIRA_yo][0]  = SB("        ");
+    kfont8[HIRA_YO][1]  = SB("     122"); kfont8[HIRA_yo][1]  = SB("        ");
+    kfont8[HIRA_YO][2]  = SB("     2  "); kfont8[HIRA_yo][2]  = SB("  1     ");
+    kfont8[HIRA_YO][3]  = SB("  1111  "); kfont8[HIRA_yo][3]  = SB("   122  ");
+    kfont8[HIRA_YO][4]  = SB(" 1   11 "); kfont8[HIRA_yo][4]  = SB("   2    ");
+    kfont8[HIRA_YO][5]  = SB("1    1 1"); kfont8[HIRA_yo][5]  = SB(" 222    ");
+    kfont8[HIRA_YO][6]  = SB("1   1   "); kfont8[HIRA_yo][6]  = SB("2  22   ");
+    kfont8[HIRA_YO][7]  = SB(" 111    "); kfont8[HIRA_yo][7]  = SB(" 22  2  ");
+
     return;
 }
 

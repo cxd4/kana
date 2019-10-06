@@ -45,6 +45,7 @@ enum {
     HIRA_MA,  HIRA_MI,  HIRA_MU,  HIRA_ME,  HIRA_MO,
     HIRA_YA,            HIRA_YU,            HIRA_YO,
     HIRA_RA,  HIRA_RI,  HIRA_RU,  HIRA_RE,  HIRA_RO,
+    HIRA_ya,            HIRA_yu,            HIRA_yo,
 
     HIRA_DA,  HIRA_JI,  HIRA_ZU,  HIRA_DE,  HIRA_DO,
     HIRA_WA,                                HIRA_W_O,
