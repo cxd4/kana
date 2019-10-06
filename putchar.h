@@ -43,6 +43,8 @@ enum {
     HIRA_NA,  HIRA_NI,  HIRA_NU,  HIRA_NE,  HIRA_NO,
     HIRA_HA,  HIRA_HI,  HIRA_FU,  HIRA_HE,  HIRA_HO,
     HIRA_MA,  HIRA_MI,  HIRA_MU,  HIRA_ME,  HIRA_MO,
+    HIRA_YA,            HIRA_YU,            HIRA_YO,
+    HIRA_RA,  HIRA_RI,  HIRA_RU,  HIRA_RE,  HIRA_RO,
 
     HIRA_DA,  HIRA_JI,  HIRA_ZU,  HIRA_DE,  HIRA_DO,
     HIRA_WA,                                HIRA_W_O,
@@ -54,6 +56,8 @@ enum {
     KATA_NA,  KATA_NI,  KATA_NU,  KATA_NE,  KATA_NO,
     KATA_HA,  KATA_HI,  KATA_FU,  KATA_HE,  KATA_HO,
     KATA_MA,  KATA_MI,  KATA_MU,  KATA_ME,  KATA_MO,
+    KATA_YA,            KATA_YU,            KATA_YO,
+    KATA_RA,  KATA_RI,  KATA_RU,  KATA_RE,  KATA_RO,
 
     KATA_DA,  KATA_JI,  KATA_ZU,  KATA_DE,  KATA_DO,
     KATA_WA,                                KATA_W_O,

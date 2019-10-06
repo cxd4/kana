@@ -157,6 +157,24 @@ a_to_kana(const char* syllable)
  * in both katakana and hiragana together, making the rest of this function
  * simple to implement (except for that fucking 'N' sound maybe... to do).
  */
+    case 'm':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_MA;
+        case 'i':  return HIRA_MI;
+        case 'u':  return HIRA_MU;
+        case 'e':  return HIRA_ME;
+        case 'o':  return HIRA_MO;
+        }
+        return ERR_BROKEN_ROMAJI;
+    case 'r':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_RA;
+        case 'i':  return HIRA_RI;
+        case 'u':  return HIRA_RU;
+        case 'e':  return HIRA_RE;
+        case 'o':  return HIRA_RO;
+        }
+        return ERR_BROKEN_ROMAJI;
     }
     return ERR_BROKEN_ROMAJI;
 }
