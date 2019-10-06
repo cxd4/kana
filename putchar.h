@@ -3,7 +3,14 @@
 
 #define NOTBLANK(character)     ((character) != ' ' ? 0x01u : 0x00u)
 
-#define strtobyte(s) (\
+/*
+ * helper macro to store binary octets from source code ASCII strings of
+ * text showing the stroke order to each kana
+ *
+ * e.g. SB("  1 2 3 ") == 0x2A
+ * used to store given strings as a table of bits
+ */
+#define SB(s) (\
 (NOTBLANK((s)[0]) << 7) | \
 (NOTBLANK((s)[1]) << 6) | \
 (NOTBLANK((s)[2]) << 5) | \
