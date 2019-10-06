@@ -115,6 +115,52 @@ hira8x8(void)
     kfont8[HIRA_SO][6]  = SB("  *   * "); kfont8[HIRA_TO][6]  = SB("*      *");
     kfont8[HIRA_SO][7]  = SB("   ***  "); kfont8[HIRA_TO][7]  = SB(" ****** ");
 
+
+    kfont8[HIRA_NA][0]  = SB("  2  44 "); kfont8[HIRA_HA][0]  = SB("");
+    kfont8[HIRA_NA][1]  = SB("1121   4"); kfont8[HIRA_HA][1]  = SB("");
+    kfont8[HIRA_NA][2]  = SB(" 2   3 4"); kfont8[HIRA_HA][2]  = SB("");
+    kfont8[HIRA_NA][3]  = SB(" 2   3  "); kfont8[HIRA_HA][3]  = SB("");
+    kfont8[HIRA_NA][4]  = SB("2  3333 "); kfont8[HIRA_HA][4]  = SB("");
+    kfont8[HIRA_NA][5]  = SB("2 3   33"); kfont8[HIRA_HA][5]  = SB("");
+    kfont8[HIRA_NA][6]  = SB("  3   3 "); kfont8[HIRA_HA][6]  = SB("");
+    kfont8[HIRA_NA][7]  = SB("   333  "); kfont8[HIRA_HA][7]  = SB("");
+
+    kfont8[HIRA_NI][0]  = SB(" 1  222 "); kfont8[HIRA_HI][0]  = SB("");
+    kfont8[HIRA_NI][1]  = SB("1      2"); kfont8[HIRA_HI][1]  = SB("");
+    kfont8[HIRA_NI][2]  = SB("1       "); kfont8[HIRA_HI][2]  = SB("");
+    kfont8[HIRA_NI][3]  = SB("1       "); kfont8[HIRA_HI][3]  = SB("");
+    kfont8[HIRA_NI][4]  = SB("1   3   "); kfont8[HIRA_HI][4]  = SB("");
+    kfont8[HIRA_NI][5]  = SB("1  3    "); kfont8[HIRA_HI][5]  = SB("");
+    kfont8[HIRA_NI][6]  = SB("1  3    "); kfont8[HIRA_HI][6]  = SB("");
+    kfont8[HIRA_NI][7]  = SB(" 1  3333"); kfont8[HIRA_HI][7]  = SB("");
+
+    kfont8[HIRA_NU][0]  = SB("  1 2   "); kfont8[HIRA_HU][0]  = SB("");
+    kfont8[HIRA_NU][1]  = SB("  22222 "); kfont8[HIRA_HU][1]  = SB("");
+    kfont8[HIRA_NU][2]  = SB(" 21 2  2"); kfont8[HIRA_HU][2]  = SB("");
+    kfont8[HIRA_NU][3]  = SB("2 1 2  2"); kfont8[HIRA_HU][3]  = SB("");
+    kfont8[HIRA_NU][4]  = SB("2 1 2 22"); kfont8[HIRA_HU][4]  = SB("");
+    kfont8[HIRA_NU][5]  = SB("2 12 2 2"); kfont8[HIRA_HU][5]  = SB("");
+    kfont8[HIRA_NU][6]  = SB("2 12 2 2"); kfont8[HIRA_HU][6]  = SB("");
+    kfont8[HIRA_NU][7]  = SB(" 22   2 "); kfont8[HIRA_HU][7]  = SB("");
+
+    kfont8[HIRA_NE][0]  = SB("  1 22  "); kfont8[HIRA_HE][0]  = SB("");
+    kfont8[HIRA_NE][1]  = SB("2 12  2 "); kfont8[HIRA_HE][1]  = SB("");
+    kfont8[HIRA_NE][2]  = SB("2 2    2"); kfont8[HIRA_HE][2]  = SB("");
+    kfont8[HIRA_NE][3]  = SB("221    2"); kfont8[HIRA_HE][3]  = SB("");
+    kfont8[HIRA_NE][4]  = SB("2 1  222"); kfont8[HIRA_HE][4]  = SB("");
+    kfont8[HIRA_NE][5]  = SB("  1 2  2"); kfont8[HIRA_HE][5]  = SB("");
+    kfont8[HIRA_NE][6]  = SB("  1 2  2"); kfont8[HIRA_HE][6]  = SB("");
+    kfont8[HIRA_NE][7]  = SB("  1  22 "); kfont8[HIRA_HE][7]  = SB("");
+
+    kfont8[HIRA_NO][0]  = SB("  ....  "); kfont8[HIRA_HO][0]  = SB("");
+    kfont8[HIRA_NO][1]  = SB(" .    . "); kfont8[HIRA_HO][1]  = SB("");
+    kfont8[HIRA_NO][2]  = SB(".   .  ."); kfont8[HIRA_HO][2]  = SB("");
+    kfont8[HIRA_NO][3]  = SB(".   .  ."); kfont8[HIRA_HO][3]  = SB("");
+    kfont8[HIRA_NO][4]  = SB(".   .  ."); kfont8[HIRA_HO][4]  = SB("");
+    kfont8[HIRA_NO][5]  = SB(".   .  ."); kfont8[HIRA_HO][5]  = SB("");
+    kfont8[HIRA_NO][6]  = SB(".  .  . "); kfont8[HIRA_HO][6]  = SB("");
+    kfont8[HIRA_NO][7]  = SB(" ..  .  "); kfont8[HIRA_HO][7]  = SB("");
+
     return;
 }
 
