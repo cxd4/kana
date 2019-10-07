@@ -46,9 +46,10 @@ enum {
     HIRA_YA,            HIRA_YU,            HIRA_YO,
     HIRA_RA,  HIRA_RI,  HIRA_RU,  HIRA_RE,  HIRA_RO,
     HIRA_ya,            HIRA_yu,            HIRA_yo,
+    HIRA_WA,  HIRA_lnv, HIRA_tsu, HIRA_N,   HIRA_W_O,
 
+    HIRA_a,   HIRA_i,   HIRA_u,   HIRA_e,   HIRA_o,
     HIRA_DA,  HIRA_JI,  HIRA_ZU,  HIRA_DE,  HIRA_DO,
-    HIRA_WA,                                HIRA_W_O,
 
     KATA_A,   KATA_I,   KATA_U,   KATA_E,   KATA_O,
     KATA_KA,  KATA_KI,  KATA_KU,  KATA_KE,  KATA_KO,
@@ -61,7 +62,7 @@ enum {
     KATA_RA,  KATA_RI,  KATA_RU,  KATA_RE,  KATA_RO,
 
     KATA_DA,  KATA_JI,  KATA_ZU,  KATA_DE,  KATA_DO,
-    KATA_WA,                                KATA_W_O,
+    KATA_WA,            KATA_tsu, KATA_N,   KATA_W_O,
 
               KATA_WI,            KATA_WE,  KATA_WO,
     KATA_TSA, KATA_TSI,           KATA_TSE, KATA_TSO,

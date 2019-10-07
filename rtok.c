@@ -20,6 +20,15 @@ a_to_kana(const char* syllable)
     case 'u':  return HIRA_U;
     case 'e':  return HIRA_E;
     case 'o':  return HIRA_O; /* We'll have to handle "wo" externally.... */
+    case 'n':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_NA;
+        case 'i':  return HIRA_NI;
+        case 'u':  return HIRA_NU;
+        case 'e':  return HIRA_NE;
+        case 'o':  return HIRA_NO;
+        }
+        return HIRA_N;
 
 /*
  * I feel it best to reserve capitalized romaji syllables to refer to
@@ -36,6 +45,15 @@ a_to_kana(const char* syllable)
     case 'U':  return KATA_U;
     case 'E':  return KATA_E;
     case 'O':  return KATA_O;
+    case 'N':
+        switch (toupper(syllable[1])) {
+        case 'A':  return KATA_NA;
+        case 'I':  return KATA_NI;
+        case 'U':  return KATA_NU;
+        case 'E':  return KATA_NE;
+        case 'O':  return KATA_NO;
+        }
+        return KATA_N;
     case ' ': /* spacing to separate "o" as the old "wo" particle */
         switch (syllable[1]) {
         case 'o':
@@ -157,6 +175,34 @@ a_to_kana(const char* syllable)
  * in both katakana and hiragana together, making the rest of this function
  * simple to implement (except for that fucking 'N' sound maybe... to do).
  */
+    case 'k':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_KA;
+        case 'i':  return HIRA_KI;
+        case 'u':  return HIRA_KU;
+        case 'e':  return HIRA_KE;
+        case 'o':  return HIRA_KO;
+        }
+        return ERR_BROKEN_ROMAJI;
+    case 's':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_SA;
+        case 'h':  return (syllable[2] == 'i' ? HIRA_SHI : ERR_BROKEN_ROMAJI);
+        case 'i':  return ERR_LOST_SYLLABLE;
+        case 'u':  return HIRA_SU;
+        case 'e':  return HIRA_SE;
+        case 'o':  return HIRA_SO;
+        }
+        return ERR_BROKEN_ROMAJI;
+    case 'h':
+        switch (syllable[1]) {
+        case 'a':  return HIRA_HA;
+        case 'i':  return HIRA_HI;
+        case 'u':  return HIRA_HU;
+        case 'e':  return HIRA_HE;
+        case 'o':  return HIRA_HO;
+        }
+        return ERR_BROKEN_ROMAJI;
     case 'm':
         switch (syllable[1]) {
         case 'a':  return HIRA_MA;
