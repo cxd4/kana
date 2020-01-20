@@ -252,11 +252,36 @@ function a_to_kana(syllable) {
         case 'a':  return HIRA_SA;
         case 'h':
             ascii_in = 3;
-            return (syllable[2] == 'i' ? HIRA_SHI : 0);
+            switch (syllable[2]) {
+            case 'a':
+                return HIRA_SHA;
+            case 'i':
+                return HIRA_SHI;
+            case 'u':
+                return HIRA_SHU;
+            case 'e':
+                return 0;
+            case 'o':
+                return HIRA_SHO;
+            }
+            return 0;
         case 'i':  return ERR_LOST_SYLLABLE;
         case 'u':  return HIRA_SU;
         case 'e':  return HIRA_SE;
         case 'o':  return HIRA_SO;
+        }
+        return 0;
+    case 'c':
+        ascii_in = 3;
+        if (syllable[1] !== 'h') {
+            return 0;
+        }
+        switch (syllable[2]) {
+        case 'a':  return HIRA_CHA;
+        case 'i':  return HIRA_CHI;
+        case 'u':  return HIRA_CHU;
+        case 'e':  return 0;
+        case 'o':  return HIRA_CHO;
         }
         return 0;
 
