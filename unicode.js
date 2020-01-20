@@ -1,8 +1,13 @@
 var HIRA_A = 0x3042;
+var HIRA_a = 0x3043;
 var HIRA_I = 0x3044;
+var HIRA_i = 0x3045;
 var HIRA_U = 0x3046;
+var HIRA_u = 0x3047;
 var HIRA_E = 0x3048;
+var HIRA_e = 0x3049;
 var HIRA_O = 0x304A;
+var HIRA_o = 0x304B;
 
 var HIRA_KA = 0x304B;
 var HIRA_KI = 0x304D;
@@ -100,6 +105,11 @@ var KATA_I = 96 + 0x3044;
 var KATA_U = 96 + 0x3046;
 var KATA_E = 96 + 0x3048;
 var KATA_O = 96 + 0x304A;
+var KATA_a = 96 + HIRA_a;
+var KATA_i = 96 + HIRA_i;
+var KATA_u = 96 + HIRA_u;
+var KATA_e = 96 + HIRA_e;
+var KATA_o = 96 + HIRA_o;
 
 var KATA_KA = 96 + 0x304B;
 var KATA_KI = 96 + 0x304D;
