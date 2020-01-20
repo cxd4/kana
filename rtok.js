@@ -1,6 +1,6 @@
 function toupper(letter) {
     "use strict";
-    return letter.toUpperCase(); // fix me
+    return letter.toUpperCase();
 }
 
 function rtok(ascii, mlif) {
@@ -12,13 +12,26 @@ function rtok(ascii, mlif) {
     while (i < ascii.length) {
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
-        case HIRA_A:
-        case HIRA_I:
-        case HIRA_U:
-        case HIRA_E:
-        case HIRA_O:
-        case HIRA_N:
-        case KATA_A:
+        case KATA_VA:
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_VU + ";";
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_a + ";";
+            i += 2;
+            break;
+        case KATA_VI:
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_VU + ";";
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_i + ";";
+            i += 2;
+            break;
+        case KATA_VE:
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_VU + ";";
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_e + ";";
+            i += 2;
+            break;
+        case KATA_VO:
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_VU + ";";
+            mlif.getElementById("kana").innerHTML += "&#" + KATA_o + ";";
+            i += 2;
+            break;
         default:
             if (codepoint == 0) {
                 mlif.getElementById("kana").innerHTML += ascii[i];
