@@ -114,7 +114,7 @@ function a_to_kana(syllable) {
         case 'Y':
             ascii_in = 3;
             return (toupper(syllable[2]) == 'U' ? KATA_DYU : 0);
-	case 'U':  return 0;
+        case 'U':  return 0;
 
     /* The rest of these all exist as native sounds also in hiragana. */
         case 'A':  return KATA_DA;
@@ -235,6 +235,7 @@ function a_to_kana(syllable) {
         case 'o':  return HIRA_KO;
         }
         return 0;
+
     case 's':
         ascii_in = 2;
         switch (syllable[1]) {
@@ -248,6 +249,7 @@ function a_to_kana(syllable) {
         case 'o':  return HIRA_SO;
         }
         return 0;
+
     case 'h':
         ascii_in = 2;
         switch (syllable[1]) {
@@ -258,6 +260,7 @@ function a_to_kana(syllable) {
         case 'o':  return HIRA_HO;
         }
         return 0;
+
     case 'm':
         ascii_in = 2;
         switch (syllable[1]) {
@@ -268,6 +271,7 @@ function a_to_kana(syllable) {
         case 'o':  return HIRA_MO;
         }
         return 0;
+
     case 'r':
         ascii_in = 2;
         switch (syllable[1]) {
@@ -278,6 +282,7 @@ function a_to_kana(syllable) {
         case 'o':  return HIRA_RO;
         }
         return 0;
+
     case 'y':
         ascii_in = 2;
         switch (syllable[1]) {
@@ -286,6 +291,39 @@ function a_to_kana(syllable) {
         case 'u':  return HIRA_YU;
         case 'e':  return HIRA_YE;
         case 'o':  return HIRA_YO;
+        }
+        return 0;
+
+    case 'g':
+        ascii_in = 2;
+        switch (syllable[1]) {
+        case 'a':  return HIRA_GA;
+        case 'i':  return HIRA_GI;
+        case 'u':  return HIRA_GU;
+        case 'e':  return HIRA_GE;
+        case 'o':  return HIRA_GO;
+        }
+        return 0;
+
+    case 'b':
+        ascii_in = 2;
+        switch (syllable[1]) {
+        case 'a':  return HIRA_BA;
+        case 'i':  return HIRA_BI;
+        case 'u':  return HIRA_BU;
+        case 'e':  return HIRA_BE;
+        case 'o':  return HIRA_BO;
+        }
+        return 0;
+
+    case 'p':
+        ascii_in = 2;
+        switch (syllable[1]) {
+        case 'a':  return HIRA_PA;
+        case 'i':  return HIRA_PI;
+        case 'u':  return HIRA_PU;
+        case 'e':  return HIRA_PE;
+        case 'o':  return HIRA_PO;
         }
         return 0;
     }
