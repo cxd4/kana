@@ -2,9 +2,25 @@
 <html>
 <head>
 <title>/kana</title>
+<link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
 <body>
-<h2>Work in progress.</h2>
+<noscript>
+Your browser is not accepting client-side scripts.  Lacking our own personal server, there is no fallback.
+</noscript>
+<script type="text/javascript" src="unicode.js"></script>
+<script type="text/javascript" src="rtok.js"></script>
+
+<p>Write the Japanese sounds using Latin letters below:</p>
+<input
+ type="text"
+ id="romaji"
+ oninput="rtok(document.getElementById('romaji').value, document)"
+>
+
+<p>Kana output:</p>
+<p id="kana">(blank)</p>
+
 </body>
 </html>

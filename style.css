@@ -1,0 +1,23 @@
+p.k {
+/* Help us tell Katakana apart from Hiragana more quickly using colors. */
+    font-family:  Verdana, Arial, Helvetica, sans-serif;
+}
+
+table, tr, td {
+    border-width:  1px;
+    border-style:  outset;
+}
+img {
+    vertical-align:  bottom;
+}
+
+p, li {
+    white-space :  pre-wrap;
+}
+
+td.n, tr.n { /* numeric data */
+    text-align  :  right;
+}
+td.t, tr.t { /* titular data */
+    text-align  :  center;
+}
