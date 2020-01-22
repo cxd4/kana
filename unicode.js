@@ -1,13 +1,13 @@
 var HIRA_A = 0x3042;
-var HIRA_a = 0x3043;
+var HIRA_a = 0x3041;
 var HIRA_I = 0x3044;
-var HIRA_i = 0x3045;
+var HIRA_i = 0x3043;
 var HIRA_U = 0x3046;
-var HIRA_u = 0x3047;
+var HIRA_u = 0x3045;
 var HIRA_E = 0x3048;
-var HIRA_e = 0x3049;
+var HIRA_e = 0x3047;
 var HIRA_O = 0x304A;
-var HIRA_o = 0x304B;
+var HIRA_o = 0x3049;
 
 var HIRA_KA = 0x304B;
 var HIRA_KI = 0x304D;
@@ -205,10 +205,13 @@ var KATA_tsu = 96 + HIRA_tsu;
 
 var HIRA_FU = HIRA_HU;
 
+
+var HIRA_VU = 0x3094;
+
 /*
  * katakana-specific syllables
  */
-var KATA_VU = -1;
+var KATA_VU = 96 + HIRA_VU;
 var KATA_VA = -2;
 var KATA_VI = -3;
 var KATA_VE = -4;
