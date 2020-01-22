@@ -21,3 +21,10 @@ td.n, tr.n { /* numeric data */
 td.t, tr.t { /* titular data */
     text-align  :  center;
 }
+
+input {
+    width:  95%;
+}
+span {
+    font-size:  48px;
+}
