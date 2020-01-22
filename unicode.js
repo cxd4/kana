@@ -46,10 +46,10 @@ var HIRA_ME = 0x3081;
 var HIRA_MO = 0x3082;
 
 var HIRA_YA = 0x3084;
-var HIRA_YI = 0x3085;
 var HIRA_YU = 0x3086;
-var HIRA_YE = 0x3087;
 var HIRA_YO = 0x3088;
+var HIRA_YE = 0x1B001;
+var HIRA_YI = 0x1B129; /* proposed addition to Unicode, unconfirmed */
 
 var HIRA_RA = 0x3089;
 var HIRA_RI = 0x308A;
@@ -59,7 +59,7 @@ var HIRA_RO = 0x308D;
 
 var HIRA_WA = 0x308F;
 var HIRA_WI = 0x3090;
-var HIRA_WU = HIRA_U;
+var HIRA_WU = 0x1B12A; /* proposed addition to Unicode, unconfirmed */
 var HIRA_WE = 0x3091;
 var HIRA_W_O = 0x3092;
 
@@ -148,10 +148,10 @@ var KATA_ME = 96 + 0x3081;
 var KATA_MO = 96 + 0x3082;
 
 var KATA_YA = 96 + 0x3084;
-var KATA_YI = 96 + 0x3085;
 var KATA_YU = 96 + 0x3086;
-var KATA_YE = 96 + 0x3087;
 var KATA_YO = 96 + 0x3088;
+var KATA_YE = 0x1B12D; /* proposed addition to Unicode, unconfirmed */
+var KATA_YI = 0x1B12C; /* proposed addition to Unicode, unconfirmed */
 
 var KATA_RA = 96 + 0x3089;
 var KATA_RI = 96 + 0x308A;
@@ -161,7 +161,7 @@ var KATA_RO = 96 + 0x308D;
 
 var KATA_WA = 96 + 0x308F;
 var KATA_WI = 96 + 0x3090;
-var KATA_WU = 96 + HIRA_WU;
+var KATA_WU = 0x1B12E; /* proposed addition to Unicode, unconfirmed */
 var KATA_WE = 96 + 0x3091;
 var KATA_W_O = 96 + HIRA_W_O;
 

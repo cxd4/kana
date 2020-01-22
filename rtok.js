@@ -194,7 +194,7 @@ function a_to_kana(syllable) {
         case 'O':  return KATA_WO;
 
         case 'A':  return KATA_WA; /* DOES exist in hiragana */
-        case 'U':  return 0;
+        case 'U':  return KATA_WU;
         }
         return 0;
 
@@ -231,7 +231,7 @@ function a_to_kana(syllable) {
         switch (syllable[1]) {
         case 'a':  return HIRA_WA;
         case 'i':  return HIRA_WI;
-        case 'u':  return 0;
+        case 'u':  return HIRA_WU;
         case 'e':  return HIRA_WE;
         case 'o':  return HIRA_W_O; /* deprecated; use " o " with spaces */
         }
