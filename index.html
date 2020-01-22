@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body>
+<body onload="rtok(document.getElementById('romaji').value, document)">
 <noscript>
 Your browser is not accepting client-side scripts.  Lacking our own personal server, there is no fallback.
 </noscript>
@@ -13,11 +13,16 @@ Your browser is not accepting client-side scripts.  Lacking our own personal ser
 <script type="text/javascript" src="rtok.js"></script>
 
 <p>Write the Japanese sounds using Latin letters below:</p>
-<input
- type="text"
+
+<textarea
+ cols="80"
+ rows="20"
  id="romaji"
  oninput="rtok(document.getElementById('romaji').value, document)"
+ autofocus
 >
+Roomaji wa koko e ikimasu.
+</textarea>
 
 <p>Kana output:</p>
 <span id="kana">(...)</span>

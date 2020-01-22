@@ -34,7 +34,11 @@ function rtok(ascii, mlif) {
             break;
         default:
             if (codepoint == 0) {
-                mlif.getElementById("kana").innerHTML += ascii[i];
+                if (ascii[i] === '\n') {
+                    mlif.getElementById("kana").innerHTML += "<br>";
+                } else {
+                    mlif.getElementById("kana").innerHTML += ascii[i];
+                }
                 i += 1;
             } else {
                 mlif.getElementById("kana").innerHTML += "&#" + codepoint + ";";
