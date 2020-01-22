@@ -191,7 +191,7 @@ function a_to_kana(syllable) {
         switch (toupper(syllable[1])) {
         case 'I':  return KATA_WI;
         case 'E':  return KATA_WE;
-        case 'O':  return KATA_WO;
+        case 'O':  return KATA_W_O;
 
         case 'A':  return KATA_WA; /* DOES exist in hiragana */
         case 'U':  return KATA_WU;
