@@ -34,6 +34,28 @@ function rtok(ascii, mlif) {
     while (i < ascii.length) {
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
+        case HIRA_WA:
+            if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
+                codepoint = HIRA_HA;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 2;
+            break;
+        case HIRA_O:
+            if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
+                codepoint = HIRA_W_O;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+        case HIRA_E:
+            if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
+                codepoint = HIRA_HE;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+
         case KATA_VA:
             kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_a + ";";
             i += 2;
