@@ -6,6 +6,12 @@ function tolower(letter) {
     "use strict";
     return letter.toLowerCase();
 }
+function setCharAt(str,index,chr) {
+    if (index > str.length - 1) {
+        return (str);
+    }
+    return (str.substr(0, index) + chr + str.substr(index + 1));
+}
 
 function sound_from_vowel(consonant, vowel, gap) {
     "use strict";
@@ -27,10 +33,39 @@ function sound_from_vowel(consonant, vowel, gap) {
 function rtok(ascii, mlif) {
     "use strict";
     var i = 0;
+    var x1 = -1;
+    var x2 = -1;
+
     var codepoint;
     var kana = mlif.getElementById("kana");
 
+    while (!(toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z')) {
+        i += 1;
+    }
+    while (i < ascii.length) {
+        var katakana_flag = false;
+        if (!(toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z')) {
+            x2 = x1;
+            while (x1 < i) {
+                if (ascii[x1] >= 'A' && ascii[x1] <= 'Z') {
+                    katakana_flag = true;
+                }
+                x1 += 1;
+            }
+            if (katakana_flag) {
+                while (x2 < i) {
+                    ascii = setCharAt(ascii, x2, toupper(ascii[x2]));
+                    x2 += 1;
+                }
+            }
+        } else if (toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z' && x1 < 0) {
+            x1 = i;
+        }
+        i += 1;
+    }
+
     kana.innerHTML = "";
+    i = 0;
     while (i < ascii.length) {
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
@@ -51,6 +86,30 @@ function rtok(ascii, mlif) {
         case HIRA_E:
             if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
                 codepoint = HIRA_HE;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+
+        case KATA_I:
+            if (ascii[i - 1] === ascii[i] || ascii[i - 1] === 'E') {
+                codepoint = 0x30FC;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+        case KATA_U:
+            if (ascii[i - 1] === ascii[i] || ascii[i - 1] === 'O') {
+                codepoint = 0x30FC;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+        case KATA_A:
+        case KATA_E:
+        case KATA_O:
+            if (ascii[i - 1] === ascii[i]) {
+                codepoint = 0x30FC;
             }
             kana.innerHTML += "&#" + codepoint + ";";
             i += 1;
