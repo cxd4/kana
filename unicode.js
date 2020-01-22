@@ -18,8 +18,8 @@ var HIRA_KO = 0x3053;
 var HIRA_SA = 0x3055;
 var HIRA_SHI = 0x3057;
 var HIRA_SU = 0x3059;
-var HIRA_SE = 0x305A;
-var HIRA_SO = 0x305C;
+var HIRA_SE = 0x305B;
+var HIRA_SO = 0x305D;
 
 var HIRA_TA = 0x305F;
 var HIRA_CHI = 0x3061;
