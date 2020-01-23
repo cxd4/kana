@@ -70,21 +70,21 @@ function rtok(ascii, mlif) {
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
         case HIRA_WA:
-            if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
+            if (ascii[i - 1] === ' ' && ascii[i + 2] === ' ') {
                 codepoint = HIRA_HA;
             }
             kana.innerHTML += "&#" + codepoint + ";";
             i += 2;
             break;
         case HIRA_O:
-            if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
+            if (ascii[i - 1] === ' ' && ascii[i + 1] === ' ') {
                 codepoint = HIRA_W_O;
             }
             kana.innerHTML += "&#" + codepoint + ";";
             i += 1;
             break;
         case HIRA_E:
-            if (!(ascii[i - 1] >= 'a' && ascii[i + 2] <= 'z')) {
+            if (ascii[i - 1] === ' ' && ascii[i + 1] === ' ') {
                 codepoint = HIRA_HE;
             }
             kana.innerHTML += "&#" + codepoint + ";";
