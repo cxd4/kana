@@ -95,20 +95,6 @@ function a_to_kana(syllable) {
         }
         ascii_in = 2;
         return (extension);
-    case ' ': /* spacing to separate "o" as the old "wo" particle */
-        ascii_in = 2;
-        switch (syllable[1]) {
-        case 'o':
-            if (syllable[2] != ' ')
-                break;
-            return HIRA_W_O; /* w-line "o" (legacy:  "wo") */
-        case 'O':
-            if (syllable[2] != ' ')
-                break;
-            return KATA_W_O;
-        }
-        ascii_in = 1;
-        return (" ");
 
 /*
  * Try to get most of the katakana-specific syllables out of the way.
