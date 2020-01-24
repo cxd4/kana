@@ -6,11 +6,16 @@ function tolower(letter) {
     "use strict";
     return letter.toLowerCase();
 }
-function setCharAt(str,index,chr) {
+function setCharAt(str, index, chr) {
+    "use strict";
     if (index > str.length - 1) {
         return (str);
     }
-    return (str.substr(0, index) + chr + str.substr(index + 1));
+    return (
+        str.substr(0, index) +
+        chr +
+        str.substr(index + 1)
+    );
 }
 
 function sound_from_vowel(consonant, vowel, gap) {
@@ -28,124 +33,6 @@ function sound_from_vowel(consonant, vowel, gap) {
         return (consonant + 4 * gap);
     }
     return 0;
-}
-
-function rtok(ascii, mlif) {
-    "use strict";
-    var i = 0;
-    var x1 = -1;
-    var x2 = -1;
-
-    var codepoint;
-    var kana = mlif.getElementById("kana");
-
-    while (!(toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z')) {
-        i += 1;
-    }
-    while (i < ascii.length) {
-        var katakana_flag = false;
-        if (!(toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z')) {
-            x2 = x1;
-            while (x1 < i) {
-                if (ascii[x1] >= 'A' && ascii[x1] <= 'Z') {
-                    katakana_flag = true;
-                }
-                x1 += 1;
-            }
-            if (katakana_flag) {
-                while (x2 < i) {
-                    ascii = setCharAt(ascii, x2, toupper(ascii[x2]));
-                    x2 += 1;
-                }
-            }
-        } else if (toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z' && x1 < 0) {
-            x1 = i;
-        }
-        i += 1;
-    }
-
-    kana.innerHTML = "";
-    i = 0;
-    while (i < ascii.length) {
-        codepoint = a_to_kana(ascii.substring(i));
-        switch (codepoint) {
-        case HIRA_WA:
-            if (ascii[i - 1] === ' ' && ascii[i + 2] === ' ') {
-                codepoint = HIRA_HA;
-            }
-            kana.innerHTML += "&#" + codepoint + ";";
-            i += 2;
-            break;
-        case HIRA_O:
-            if (ascii[i - 1] === ' ' && ascii[i + 1] === ' ') {
-                codepoint = HIRA_W_O;
-            }
-            kana.innerHTML += "&#" + codepoint + ";";
-            i += 1;
-            break;
-        case HIRA_E:
-            if (ascii[i - 1] === ' ' && ascii[i + 1] === ' ') {
-                codepoint = HIRA_HE;
-            }
-            kana.innerHTML += "&#" + codepoint + ";";
-            i += 1;
-            break;
-
-        case KATA_I:
-            if (ascii[i - 1] === ascii[i] || ascii[i - 1] === 'E') {
-                codepoint = 0x30FC;
-            }
-            kana.innerHTML += "&#" + codepoint + ";";
-            i += 1;
-            break;
-        case KATA_U:
-            if (ascii[i - 1] === ascii[i] || ascii[i - 1] === 'O') {
-                codepoint = 0x30FC;
-            }
-            kana.innerHTML += "&#" + codepoint + ";";
-            i += 1;
-            break;
-        case KATA_A:
-        case KATA_E:
-        case KATA_O:
-            if (ascii[i - 1] === ascii[i]) {
-                codepoint = 0x30FC;
-            }
-            kana.innerHTML += "&#" + codepoint + ";";
-            i += 1;
-            break;
-
-        case KATA_VA:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_a + ";";
-            i += 2;
-            break;
-        case KATA_VI:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_i + ";";
-            i += 2;
-            break;
-        case KATA_VE:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_e + ";";
-            i += 2;
-            break;
-        case KATA_VO:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_o + ";";
-            i += 2;
-            break;
-        default:
-            if (codepoint == 0) {
-                if (ascii[i] === '\n') {
-                    kana.innerHTML += "<br>";
-                } else {
-                    kana.innerHTML += ascii[i];
-                }
-                i += 1;
-            } else {
-                kana.innerHTML += "&#" + codepoint + ";";
-                i += ascii_in;
-            }
-        }
-    }
-    return;
 }
 
 var ascii_in = 0;
@@ -453,4 +340,122 @@ function a_to_kana(syllable) {
         return sound_from_vowel(KATA_PA, tolower(syllable[1]), 3);
     }
     return 0;
+}
+
+function rtok(ascii, mlif) {
+    "use strict";
+    var i = 0;
+    var x1 = -1;
+    var x2 = -1;
+
+    var codepoint;
+    var kana = mlif.getElementById("kana");
+
+    while (!(toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z')) {
+        i += 1;
+    }
+    while (i < ascii.length) {
+        var katakana_flag = false;
+        if (!(toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z')) {
+            x2 = x1;
+            while (x1 < i) {
+                if (ascii[x1] >= 'A' && ascii[x1] <= 'Z') {
+                    katakana_flag = true;
+                }
+                x1 += 1;
+            }
+            if (katakana_flag) {
+                while (x2 < i) {
+                    ascii = setCharAt(ascii, x2, toupper(ascii[x2]));
+                    x2 += 1;
+                }
+            }
+        } else if (toupper(ascii[i]) >= 'A' && toupper(ascii[i]) <= 'Z' && x1 < 0) {
+            x1 = i;
+        }
+        i += 1;
+    }
+
+    kana.innerHTML = "";
+    i = 0;
+    while (i < ascii.length) {
+        codepoint = a_to_kana(ascii.substring(i));
+        switch (codepoint) {
+        case HIRA_WA:
+            if (ascii[i - 1] === ' ' && ascii[i + 2] === ' ') {
+                codepoint = HIRA_HA;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 2;
+            break;
+        case HIRA_O:
+            if (ascii[i - 1] === ' ' && ascii[i + 1] === ' ') {
+                codepoint = HIRA_W_O;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+        case HIRA_E:
+            if (ascii[i - 1] === ' ' && ascii[i + 1] === ' ') {
+                codepoint = HIRA_HE;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+
+        case KATA_I:
+            if (ascii[i - 1] === ascii[i] || ascii[i - 1] === 'E') {
+                codepoint = 0x30FC;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+        case KATA_U:
+            if (ascii[i - 1] === ascii[i] || ascii[i - 1] === 'O') {
+                codepoint = 0x30FC;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+        case KATA_A:
+        case KATA_E:
+        case KATA_O:
+            if (ascii[i - 1] === ascii[i]) {
+                codepoint = 0x30FC;
+            }
+            kana.innerHTML += "&#" + codepoint + ";";
+            i += 1;
+            break;
+
+        case KATA_VA:
+            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_a + ";";
+            i += 2;
+            break;
+        case KATA_VI:
+            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_i + ";";
+            i += 2;
+            break;
+        case KATA_VE:
+            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_e + ";";
+            i += 2;
+            break;
+        case KATA_VO:
+            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_o + ";";
+            i += 2;
+            break;
+        default:
+            if (codepoint == 0) {
+                if (ascii[i] === '\n') {
+                    kana.innerHTML += "<br>";
+                } else {
+                    kana.innerHTML += ascii[i];
+                }
+                i += 1;
+            } else {
+                kana.innerHTML += "&#" + codepoint + ";";
+                i += ascii_in;
+            }
+        }
+    }
+    return;
 }
