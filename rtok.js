@@ -172,21 +172,13 @@ function a_to_kana(syllable) {
     case 'o':
         return HIRA_O; /* We'll have to handle "wo" externally.... */
     case 'n':
-        ascii_in = 2;
-        switch (syllable[1]) {
-        case 'a':
-            return HIRA_NA;
-        case 'i':
-            return HIRA_NI;
-        case 'u':
-            return HIRA_NU;
-        case 'e':
-            return HIRA_NE;
-        case 'o':
-            return HIRA_NO;
+        var extension = sound_from_vowel(HIRA_NA, syllable[1], 1);
+        if (extension === 0) {
+            ascii_in = 1;
+            return HIRA_N;
         }
-        ascii_in = 1;
-        return HIRA_N;
+        ascii_in = 2;
+        return (extension);
 
 /*
  * I feel it best to reserve capitalized romaji syllables to refer to
@@ -209,21 +201,13 @@ function a_to_kana(syllable) {
     case 'O':
         return KATA_O;
     case 'N':
-        ascii_in = 2;
-        switch (toupper(syllable[1])) {
-        case 'A':
-            return KATA_NA;
-        case 'I':
-            return KATA_NI;
-        case 'U':
-            return KATA_NU;
-        case 'E':
-            return KATA_NE;
-        case 'O':
-            return KATA_NO;
+        var extension = sound_from_vowel(KATA_NA, tolower(syllable[1]), 1);
+        if (extension === 0) {
+            ascii_in = 1;
+            return KATA_N;
         }
-        ascii_in = 1;
-        return KATA_N;
+        ascii_in = 2;
+        return (extension);
     case ' ': /* spacing to separate "o" as the old "wo" particle */
         ascii_in = 2;
         switch (syllable[1]) {
