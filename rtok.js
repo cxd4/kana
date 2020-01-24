@@ -101,20 +101,9 @@ function a_to_kana(syllable) {
  * These sounds are not native Japanese and do not exist in hiragana.
  */
     case 'D':
+        var base = sound_from_vowel(KATA_DA, tolower(syllable[1]), 2);
         ascii_in = 2;
-        switch (toupper(syllable[1])) {
-        case 'I':  return KATA_DI;
-        case 'Y':
-            ascii_in = 3;
-            return (toupper(syllable[2]) == 'U' ? KATA_DYU : 0);
-        case 'U':  return 0;
-
-    /* The rest of these all exist as native sounds also in hiragana. */
-        case 'A':  return KATA_DA;
-        case 'E':  return KATA_DE;
-        case 'O':  return KATA_DO;
-        }
-        return ERR_BROKEN_ROMAJI;
+        return (base > KATA_DI ? base + 1 : base);
     case 'F':
         ascii_in = 2;
         switch (toupper(syllable[1])) {
@@ -179,15 +168,9 @@ function a_to_kana(syllable) {
  * sounds actually present in the Japanese language.
  */
     case 'd':
+        var base = sound_from_vowel(HIRA_DA, syllable[1], 2);
         ascii_in = 2;
-        switch (syllable[1]) {
-        case 'a':  return HIRA_DA;
-        case 'i':  return 0;
-        case 'u':  return 0;
-        case 'e':  return HIRA_DE;
-        case 'o':  return HIRA_DO;
-        }
-        return 0;
+        return (base > HIRA_DI ? base + 1 : base);
     case 'f':
         ascii_in = 2;
         return (syllable[1] == 'u' ? HIRA_FU : 0);
@@ -312,6 +295,12 @@ function a_to_kana(syllable) {
     case 'G':
         ascii_in = 2;
         return sound_from_vowel(KATA_GA, tolower(syllable[1]), 2);
+    case 'z':
+        ascii_in = 2;
+        return sound_from_vowel(HIRA_ZA, syllable[1], 2);
+    case 'Z':
+        ascii_in = 2;
+        return sound_from_vowel(KATA_ZA, tolower(syllable[1]), 2);
     case 'b':
         ascii_in = 2;
         return sound_from_vowel(HIRA_BA, syllable[1], 3);
