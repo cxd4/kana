@@ -18,19 +18,46 @@ function setCharAt(str, index, chr) {
     );
 }
 
+var combo_ext = false;
 function sound_from_vowel(consonant, vowel, gap) {
     "use strict";
+    combo_ext = false;
+
     switch (vowel) {
     case 'a':
         return (consonant);
-    case 'i':
-        return (consonant + 1 * gap);
     case 'u':
         return (consonant + 2 * gap);
     case 'e':
         return (consonant + 3 * gap);
     case 'o':
         return (consonant + 4 * gap);
+
+    case 'y': /* ...and sometimes I use 'Y', too. :) */
+        combo_ext = true;
+        /* Fall through. */
+    case 'i':
+        return (consonant + 1 * gap);
+    }
+    return 0;
+}
+function combo_from_vowel(ext, kata_flag) {
+    "use strict";
+    combo_ext = false;
+
+    switch (ext) {
+    case 'a':
+        return (HIRA_ya + 96 * kata_flag);
+    case 'u':
+        return (HIRA_yu + 96 * kata_flag);
+    case 'o':
+        return (HIRA_yo + 96 * kata_flag);
+
+    /* Possibly flag these and return 0 instead. */
+    case 'i':
+        return (HIRA_yi + 96 * kata_flag);
+    case 'e':
+        return (HIRA_ye + 96 * kata_flag);
     }
     return 0;
 }
@@ -249,9 +276,15 @@ function a_to_kana(syllable) {
 
     case 'h':
         ascii_in = 2;
+        if (combo_ext) {
+            return combo_from_vowel(syllable[1], 0);
+        }
         return sound_from_vowel(HIRA_HA, syllable[1], 3);
     case 'H':
         ascii_in = 2;
+        if (combo_ext) {
+            return combo_from_vowel(tolower(syllable[1]), 1);
+        }
         return sound_from_vowel(KATA_HA, tolower(syllable[1]), 3);
 
     case 'm':
@@ -270,6 +303,9 @@ function a_to_kana(syllable) {
 
     case 'y':
         ascii_in = 2;
+        if (combo_ext) {
+            return combo_from_vowel(syllable[1], 0);
+        }
         switch (syllable[1]) {
         case 'a':  return HIRA_YA;
         case 'i':  return HIRA_YI;
@@ -280,6 +316,9 @@ function a_to_kana(syllable) {
         return 0;
     case 'Y':
         ascii_in = 2;
+        if (combo_ext) {
+            return combo_from_vowel(tolower(syllable[1]), 1);
+        }
         switch (toupper(syllable[1])) {
         case 'A':  return KATA_YA;
         case 'I':  return KATA_YI;
@@ -418,6 +457,7 @@ function rtok(ascii, mlif) {
             kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_o + ";";
             i += 2;
             break;
+
         default:
             if (codepoint == 0) {
                 if (ascii[i] === '\n') {
@@ -428,7 +468,7 @@ function rtok(ascii, mlif) {
                 i += 1;
             } else {
                 kana.innerHTML += "&#" + codepoint + ";";
-                i += ascii_in;
+                i += (combo_ext ? 1 : ascii_in);
             }
         }
     }

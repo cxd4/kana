@@ -209,6 +209,21 @@ var HIRA_FU = HIRA_HU;
 var HIRA_VU = 0x3094;
 
 /*
+ * combo letter extensions
+ */
+var HIRA_ya = 0x3083;
+var HIRA_yu = 0x3085;
+var HIRA_yo = 0x3087;
+var HIRA_ye = HIRA_e; /* Unicode RFC for small "ye" code point pending */
+var HIRA_yi = HIRA_i; /* Unicode RFC for small "yi" code point pending */
+
+var KATA_ya = 96 + HIRA_ya;
+var KATA_yu = 96 + HIRA_yu;
+var KATA_yo = 96 + HIRA_yo;
+var KATA_ye = HIRA_ye + 0x0060;
+var KATA_yi = HIRA_yi + 0x0060;
+
+/*
  * katakana-specific syllables
  */
 var KATA_VU = 96 + HIRA_VU;
@@ -226,4 +241,3 @@ var KATA_TSI = -11;
 var KATA_FYU = -12;
 var KATA_TSE = -13;
 var KATA_TSO = -14;
-var KATA_
