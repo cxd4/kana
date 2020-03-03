@@ -527,5 +527,9 @@ function rtok(ascii, mlif) {
             }
         }
     }
+    mlif.getElementById("fast-translate").href = "https://translate.google.com";
+    mlif.getElementById("fast-translate").href += "/#view=home&op=translate";
+    mlif.getElementById("fast-translate").href += "&sl=ja&tl=en&text=";
+    mlif.getElementById("fast-translate").href += kana.innerHTML;
     return;
 }
