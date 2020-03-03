@@ -296,6 +296,19 @@ function a_to_kana(syllable) {
         case "o":  return HIRA_CHO;
         }
         return 0;
+    case "C":
+        ascii_in = 3;
+        if (toupper(syllable[1]) !== "H") {
+            return 0;
+        }
+        switch (toupper(syllable[2])) {
+        case "A":  return KATA_CHA;
+        case "I":  return KATA_CHI;
+        case "U":  return KATA_CHU;
+        case "E":  return KATA_CHE;
+        case "O":  return KATA_CHO;
+        }
+        return 0;
 
     case "h":
         ascii_in = 2;
