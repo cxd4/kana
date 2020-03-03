@@ -85,6 +85,10 @@ function a_to_kana(syllable) {
 
     ascii_in = 1;
     switch (syllable[0]) {
+    case ' ':
+    case '_':
+    case '-':
+        return 32;
     case '.':  return 0x3002;
     case ',':  return 0x3001;
 
