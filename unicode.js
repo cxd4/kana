@@ -243,6 +243,25 @@ var KATA_FYU = -12;
 var KATA_TSE = -13;
 var KATA_TSO = -14;
 
+function toupper(letter) {
+    "use strict";
+    return letter.toUpperCase();
+}
+function tolower(letter) {
+    "use strict";
+    return letter.toLowerCase();
+}
+function setCharAt(str, index, chr) {
+    "use strict";
+    if (index > str.length - 1) {
+        return (str);
+    }
+    return (
+        str.substr(0, index) +
+        chr +
+        str.substr(index + 1)
+    );
+}
 function user_romaji(mlif) {
     "use strict";
     var offset, offset1, offset2;
@@ -262,5 +281,13 @@ function user_romaji(mlif) {
         offset2 = href.length;
     }
     tentative_value = href.substring(offset, offset2);
+
+    var i = 0;
+    while (i < tentative_value.length) {
+        if (tentative_value[i] === "_") {
+            tentative_value = setCharAt(tentative_value, i, " ");
+        }
+        i += 1;
+    }
     mlif.getElementById("romaji").innerHTML = tentative_value;
 }

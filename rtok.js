@@ -11,26 +11,6 @@ function is_vowel(letter) {
     return false;
 }
 
-function toupper(letter) {
-    "use strict";
-    return letter.toUpperCase();
-}
-function tolower(letter) {
-    "use strict";
-    return letter.toLowerCase();
-}
-function setCharAt(str, index, chr) {
-    "use strict";
-    if (index > str.length - 1) {
-        return (str);
-    }
-    return (
-        str.substr(0, index) +
-        chr +
-        str.substr(index + 1)
-    );
-}
-
 var combo_ext = false;
 function sound_from_vowel(consonant, vowel, gap) {
     "use strict";
