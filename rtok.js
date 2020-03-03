@@ -461,11 +461,12 @@ function rtok(ascii, mlif) {
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
         case 32:
-            if (ascii[i - 1] < "A" || ascii[i - 1] > "Z") {
+            i += 1;
+            if (ascii[i - 2] < "A" || ascii[i - 2] > "Z") {
                 kana.innerHTML += " ";
                 break;
             }
-            if (ascii[i + 1] < "A" || ascii[i + 1] > "Z") {
+            if (ascii[i] < "A" || ascii[i] > "Z") {
                 kana.innerHTML += " ";
                 break;
             }
