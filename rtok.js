@@ -462,23 +462,6 @@ function rtok(ascii, mlif) {
             i += 1;
             break;
 
-        case KATA_VA:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_a + ";";
-            i += 2;
-            break;
-        case KATA_VI:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_i + ";";
-            i += 2;
-            break;
-        case KATA_VE:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_e + ";";
-            i += 2;
-            break;
-        case KATA_VO:
-            kana.innerHTML += "&#" + KATA_VU + ";" + "&#" + KATA_o + ";";
-            i += 2;
-            break;
-
         default:
             if (codepoint == 0) {
                 if (ascii[i] === '\n') {

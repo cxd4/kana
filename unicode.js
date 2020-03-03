@@ -226,11 +226,12 @@ var KATA_yi = HIRA_yi + 0x0060;
 /*
  * katakana-specific syllables
  */
+var KATA_VA = 0x30F7;
+var KATA_VI = 0x30F8;
 var KATA_VU = 96 + HIRA_VU;
-var KATA_VA = -2;
-var KATA_VI = -3;
-var KATA_VE = -4;
-var KATA_VO = -5;
+var KATA_VE = 0x30F9;
+var KATA_VO = 0x30FA;
+
 var KATA_FA = -6;
 var KATA_FI = -7;
 var KATA_FU = KATA_HU;
