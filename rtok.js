@@ -1,3 +1,16 @@
+function is_vowel(letter) {
+    "use strict";
+    switch (letter) {
+        case 'A': case 'a':
+        case 'I': case 'i':
+        case 'U': case 'u':
+        case 'E': case 'e':
+        case 'O': case 'o':
+            return true;
+    }
+    return false;
+}
+
 function toupper(letter) {
     "use strict";
     return letter.toUpperCase();
@@ -393,6 +406,14 @@ function rtok(ascii, mlif) {
     kana.innerHTML = "";
     i = 0;
     while (i < ascii.length) {
+        if (ascii[i] === ascii[i + 1] && !is_vowel(ascii[i])) {
+            kana.innerHTML += "&#" + (
+                (ascii[i] >= "A" && ascii[i] <= "Z") ? KATA_tsu : HIRA_tsu
+            ) + ";";
+            i += 1;
+            continue;
+        }
+
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
         case HIRA_WA:
