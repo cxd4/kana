@@ -1,4 +1,4 @@
-function is_vowel(letter) {
+function is_single(letter) {
     "use strict";
     switch (letter) {
         case "A": case "a":
@@ -6,6 +6,7 @@ function is_vowel(letter) {
         case "U": case "u":
         case "E": case "e":
         case "O": case "o":
+        case "N": case "n": /* singles = vowels + the `n' consonant */
             return true;
     }
     return false;
@@ -450,7 +451,7 @@ function rtok(ascii, mlif) {
     kana.innerHTML = "";
     i = 0;
     while (i < ascii.length) {
-        if (ascii[i] === ascii[i + 1] && !is_vowel(ascii[i])) {
+        if (ascii[i] === ascii[i + 1] && !is_single(ascii[i])) {
             kana.innerHTML += "&#" + (
                 (ascii[i] >= "A" && ascii[i] <= "Z") ? KATA_tsu : HIRA_tsu
             ) + ";";
