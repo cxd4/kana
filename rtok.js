@@ -460,6 +460,17 @@ function rtok(ascii, mlif) {
 
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
+        case 32:
+            if (ascii[i - 1] < "A" || ascii[i - 1] > "Z") {
+                kana.innerHTML += " ";
+                break;
+            }
+            if (ascii[i + 1] < "A" || ascii[i + 1] > "Z") {
+                kana.innerHTML += " ";
+                break;
+            }
+            kana.innerHTML += "&#" + 0x30FB + ";";
+            break; /* katakana middle dot to connect foreign words */
         case HIRA_WA:
             if (ascii[i - 1] === " " && ascii[i + 2] === " ") {
                 codepoint = HIRA_HA;
