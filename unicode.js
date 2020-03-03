@@ -242,3 +242,25 @@ var KATA_TSI = -11;
 var KATA_FYU = -12;
 var KATA_TSE = -13;
 var KATA_TSO = -14;
+
+function user_romaji(mlif) {
+    "use strict";
+    var offset, offset1, offset2;
+    var tentative_value;
+    var href = mlif.location.href;
+
+    offset1 = href.indexOf("?" + "a" + "=");
+    offset2 = href.lastIndexOf("&" + "a" + "=");
+    offset = (offset1 < offset2) ? offset2 : offset1;
+
+    if (offset < 0) {
+        return;
+    }
+    offset += 1 + "a".length + 1; /* Jump past ?/&, (name), and '='. */
+    offset2 = href.indexOf("&", offset);
+    if (offset2 < 0) {
+        offset2 = href.length;
+    }
+    tentative_value = href.substring(offset, offset2);
+    mlif.getElementById("romaji").innerHTML = tentative_value;
+}
