@@ -117,11 +117,11 @@ var KATA_KU = 96 + 0x304F;
 var KATA_KE = 96 + 0x3051;
 var KATA_KO = 96 + 0x3053;
 
-var KATA_SA = 96 + 0x3055;
-var KATA_SHI = 96 + 0x3057;
-var KATA_SU = 96 + 0x3059;
-var KATA_SE = 96 + 0x305A;
-var KATA_SO = 96 + 0x305C;
+var KATA_SA = 96 + HIRA_SA;
+var KATA_SHI = 96 + HIRA_SHI;
+var KATA_SU = 96 + HIRA_SU;
+var KATA_SE = 96 + HIRA_SE;
+var KATA_SO = 96 + HIRA_SO;
 
 var KATA_TA = 96 + 0x305F;
 var KATA_CHI = 96 + 0x3061;
