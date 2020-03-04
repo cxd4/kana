@@ -1,3 +1,24 @@
+/*
+ * @licstart    The following is the entire license notice for the
+ * JavaScript code in this file.
+ *
+ * Kana Translator:  portable ASCII-to-kana conversion library
+ * Copyright (C) 2020 rjs
+ *
+ * This program is free software:  you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * @licend      The above is the entire license notice for the JavaScript
+ * code in this file.
+ */
+
 function is_single(letter) {
     "use strict";
     switch (letter) {
@@ -414,13 +435,15 @@ function a_to_kana(syllable) {
     return 0;
 }
 
-function rtok(ascii, mlif) {
+function rtok(ascii) {
     "use strict";
     var i = 0;
     var x1 = -1;
     var x2 = -1;
 
     var codepoint;
+    var mlif = document;
+    var ascii = mlif.getElementById("romaji").value;
     var kana = mlif.getElementById("kana");
 
     while (!(toupper(ascii[i]) >= "A" && toupper(ascii[i]) <= "Z")) {

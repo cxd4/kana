@@ -1,3 +1,24 @@
+/*
+ * @licstart    The following is the entire license notice for the
+ * JavaScript code in this file.
+ *
+ * Kana Translator (Unicode code point macro definitions) (See `rtok.js'.)
+ * Copyright (C) 2020 rjs
+ *
+ * This program is free software:  you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * @licend      The above is the entire license notice for the JavaScript
+ * code in this file.
+ */
+
 var HIRA_A = 0x3042;
 var HIRA_a = 0x3041;
 var HIRA_I = 0x3044;
@@ -262,10 +283,14 @@ function setCharAt(str, index, chr) {
         str.substr(index + 1)
     );
 }
-function user_romaji(mlif) {
+function user_romaji() {
     "use strict";
-    var offset, offset1, offset2;
+    var offset;
+    var offset1;
+    var offset2;
+
     var tentative_value;
+    var mlif = document; /* assumes being run in a web browser */
     var href = mlif.location.href;
 
     offset1 = href.indexOf("?" + "a" + "=");

@@ -5,7 +5,7 @@
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 
-<body onload="user_romaji(document); rtok(document.getElementById('romaji').value, document);">
+<body onload="user_romaji(); rtok();">
 <noscript>
 Your browser is not accepting client-side scripts.  Lacking our own personal server, there is no fallback.
 </noscript>
@@ -18,19 +18,14 @@ Your browser is not accepting client-side scripts.  Lacking our own personal ser
  cols="80"
  rows="20"
  id="romaji"
- oninput="rtok(document.getElementById('romaji').value, document)"
+ oninput="rtok()"
  autofocus
 >Roomaji wa koko e ikimasu.</textarea>
 
 <p>Kana output:</p>
 <span id="kana">(...)</span>
 
-<p>Translation resources:</p>
-<ul>
-<li><a href="https://translate.google.com/#sl=ja&tl=en" id="fast-translate">Google Translate</a> (least accurate, most convenient)</li>
-<li><a href="https://www.bing.com/translator">Bing Translate</a></li>
-<li><a href="https://jisho.org/">The Online Japanese Dictionary</a> (most accurate; not for complete writings)</li>
-</ul>
+<p>To attempt a translation to English using Google, <a href="https://translate.google.com/#sl=ja&tl=en" id="fast-translate">click here</a>.</p>
 
 </body>
 </html>
