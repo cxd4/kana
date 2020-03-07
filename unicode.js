@@ -264,6 +264,10 @@ var KATA_FYU = -12;
 var KATA_TSE = -13;
 var KATA_TSO = -14;
 
+function unitohtml(code_point) {
+    "use strict";
+    return ("&#" + code_point + ";");
+}
 function toupper(letter) {
     "use strict";
     return letter.toUpperCase();

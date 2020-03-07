@@ -475,9 +475,11 @@ function rtok(ascii) {
     i = 0;
     while (i < ascii.length) {
         if (ascii[i] === ascii[i + 1] && !is_single(ascii[i])) {
-            kana.innerHTML += "&#" + (
-                (ascii[i] >= "A" && ascii[i] <= "Z") ? KATA_tsu : HIRA_tsu
-            ) + ";";
+            if (ascii[i] >= "A" && ascii[i] <= "Z") {
+                kana.innerHTML += unitohtml(KATA_tsu);
+            } else if (ascii[i] >= "a" && ascii[i] <= "z") {
+                kana.innerHTML += unitohtml(HIRA_tsu);
+            }
             i += 1;
             continue;
         }
@@ -494,27 +496,27 @@ function rtok(ascii) {
                 kana.innerHTML += " ";
                 break;
             }
-            kana.innerHTML += "&#" + 0x30FB + ";";
+            kana.innerHTML += unitohtml(0x30FB);
             break; /* katakana middle dot to connect foreign words */
         case HIRA_WA:
             if (ascii[i - 1] === " " && ascii[i + 2] === " ") {
                 codepoint = HIRA_HA;
             }
-            kana.innerHTML += "&#" + codepoint + ";";
+            kana.innerHTML += unitohtml(codepoint);
             i += 2;
             break;
         case HIRA_O:
             if (ascii[i - 1] === " " && ascii[i + 1] === " ") {
                 codepoint = HIRA_W_O;
             }
-            kana.innerHTML += "&#" + codepoint + ";";
+            kana.innerHTML += unitohtml(codepoint);
             i += 1;
             break;
         case HIRA_E:
             if (ascii[i - 1] === " " && ascii[i + 1] === " ") {
                 codepoint = HIRA_HE;
             }
-            kana.innerHTML += "&#" + codepoint + ";";
+            kana.innerHTML += unitohtml(codepoint);
             i += 1;
             break;
 
@@ -522,14 +524,14 @@ function rtok(ascii) {
             if (ascii[i - 1] === ascii[i] || ascii[i - 1] === "E") {
                 codepoint = 0x30FC;
             }
-            kana.innerHTML += "&#" + codepoint + ";";
+            kana.innerHTML += unitohtml(codepoint);
             i += 1;
             break;
         case KATA_U:
             if (ascii[i - 1] === ascii[i] || ascii[i - 1] === "O") {
                 codepoint = 0x30FC;
             }
-            kana.innerHTML += "&#" + codepoint + ";";
+            kana.innerHTML += unitohtml(codepoint);
             i += 1;
             break;
         case KATA_A:
@@ -538,7 +540,7 @@ function rtok(ascii) {
             if (ascii[i - 1] === ascii[i]) {
                 codepoint = 0x30FC;
             }
-            kana.innerHTML += "&#" + codepoint + ";";
+            kana.innerHTML += unitohtml(codepoint);
             i += 1;
             break;
 
@@ -551,7 +553,7 @@ function rtok(ascii) {
                 }
                 i += 1;
             } else {
-                kana.innerHTML += "&#" + codepoint + ";";
+                kana.innerHTML += unitohtml(codepoint);
                 i += (combo_ext ? 1 : ascii_in);
             }
         }
