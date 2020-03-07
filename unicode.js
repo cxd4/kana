@@ -181,9 +181,9 @@ var KATA_RE = 96 + 0x308C;
 var KATA_RO = 96 + 0x308D;
 
 var KATA_WA = 96 + 0x308F;
-var KATA_WI = 96 + 0x3090;
+var KATA_WI = -224; // 96 + 0x3090;
 var KATA_WU = 0x1B12E; /* proposed addition to Unicode, unconfirmed */
-var KATA_WE = 96 + 0x3091;
+var KATA_WE = -225; // 96 + 0x3091;
 var KATA_W_O = 96 + HIRA_W_O;
 
 var KATA_GA = 96 + HIRA_GA;
@@ -243,6 +243,10 @@ var KATA_yu = 96 + HIRA_yu;
 var KATA_yo = 96 + HIRA_yo;
 var KATA_ye = HIRA_ye + 0x0060;
 var KATA_yi = HIRA_yi + 0x0060;
+
+var HIRA_JA = -80;
+var HIRA_JU = -82;
+var HIRA_JO = -84;
 
 /*
  * katakana-specific syllables
