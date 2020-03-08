@@ -700,9 +700,8 @@ function rtok(ascii) {
             }
         }
     }
-    mlif.getElementById("fast-translate").href = "https://translate.google.com";
-    mlif.getElementById("fast-translate").href += "/#view=home&op=translate";
-    mlif.getElementById("fast-translate").href += "&sl=ja&tl=en&text=";
-    mlif.getElementById("fast-translate").href += kana.innerHTML;
+    mlif.getElementById("ft").href = "https://translate.google.com/#view=home&";
+    mlif.getElementById("ft").href += "op=translate&sl=ja&tl=en&text=";
+    mlif.getElementById("ft").href += kana.innerHTML;
     return;
 }
