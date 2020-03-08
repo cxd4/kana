@@ -89,8 +89,9 @@ function a_to_kana(syllable) {
     switch (syllable[0]) {
     case " ":
     case "_":
-    case "-":
         return 32;
+    case "-":
+        return 0;
     case ".":  return 0x3002;
     case ",":  return 0x3001;
 
@@ -690,7 +691,7 @@ function rtok(ascii) {
             if (codepoint == 0) {
                 if (ascii[i] === "\n") {
                     kana.innerHTML += "<br>";
-                } else {
+                } else if (ascii[i] !== "-") {
                     kana.innerHTML += ascii[i];
                 }
                 i += 1;
