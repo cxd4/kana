@@ -601,13 +601,51 @@ function rtok(ascii) {
             kana.innerHTML += unitohtml(KATA_o);
             i += 2;
             break;
+        case KATA_WA:
+            if (ascii[i + 2] === "\"") {
+                kana.innerHTML += unitohtml(KATA_VA);
+                i += 3;
+                break;
+            }
+            kana.innerHTML += unitohtml(KATA_WA);
+            i += 2;
+            break;
         case KATA_WI:
+            if (ascii[i + 2] === "\"") {
+                kana.innerHTML += unitohtml(KATA_VI);
+                i += 3;
+                break;
+            }
             kana.innerHTML += unitohtml(KATA_U);
             kana.innerHTML += unitohtml(KATA_i);
             i += 2;
             break;
         case KATA_WE:
+            if (ascii[i + 2] === "\"") {
+                kana.innerHTML += unitohtml(KATA_VE);
+                i += 3;
+                break;
+            }
             kana.innerHTML += unitohtml(KATA_U);
+            kana.innerHTML += unitohtml(KATA_e);
+            i += 2;
+            break;
+        case KATA_W_O:
+            if (ascii[i + 2] === "\"") {
+                kana.innerHTML += unitohtml(KATA_VO);
+                i += 3;
+                break;
+            }
+            kana.innerHTML += unitohtml(KATA_W_O);
+            i += 2;
+            break;
+        case KATA_VI:
+            kana.innerHTML += unitohtml(KATA_VU);
+            kana.innerHTML += unitohtml(KATA_i);
+            i += 2;
+            break;
+        case KATA_VE:
+            kana.innerHTML += unitohtml(KATA_VU);
             kana.innerHTML += unitohtml(KATA_e);
             i += 2;
             break;
