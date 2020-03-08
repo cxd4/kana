@@ -268,6 +268,9 @@ var KATA_FYU = -12;
 var KATA_TSE = -13;
 var KATA_TSO = -14;
 
+var KATA_DI = -40;
+var KATA_DYU = -49;
+
 function unitohtml(code_point) {
     "use strict";
     return ("&#" + code_point + ";");

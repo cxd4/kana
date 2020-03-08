@@ -147,9 +147,17 @@ function a_to_kana(syllable) {
  * These sounds are not native Japanese and do not exist in hiragana.
  */
     case "D":
-        var base = sound_from_vowel(KATA_DA, tolower(syllable[1]), 2);
         ascii_in = 2;
-        return (base > KATA_DI ? base + 1 : base);
+        switch (toupper(syllable[1])) {
+        case "I":  return KATA_DI;
+        case "Y":
+            ascii_in = 3;
+            return (toupper(syllable[2]) === "U" ? KATA_DYU : 0);
+        case "A":  return KATA_DA;
+        case "E":  return KATA_DE;
+        case "O":  return KATA_DO;
+        case "U":  return 0;
+        }
     case "F":
         ascii_in = 2;
         switch (toupper(syllable[1])) {
@@ -547,6 +555,16 @@ function rtok(ascii) {
 /*
  * The remainder of the switch is to adjust for combo letters.
  */
+        case KATA_DI:
+            kana.innerHTML += unitohtml(KATA_DE);
+            kana.innerHTML += unitohtml(KATA_i);
+            i += 2;
+            break;
+        case KATA_DYU:
+            kana.innerHTML += unitohtml(KATA_DE);
+            kana.innerHTML += unitohtml(KATA_yu);
+            i += 3;
+            break;
         case HIRA_JA:
             kana.innerHTML += unitohtml(HIRA_JI);
             kana.innerHTML += unitohtml(HIRA_ya);
