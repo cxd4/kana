@@ -555,6 +555,42 @@ function rtok(ascii) {
 /*
  * The remainder of the switch is to adjust for combo letters.
  */
+        case HIRA_CHA:
+            kana.innerHTML += unitohtml(HIRA_CHI);
+            kana.innerHTML += unitohtml(HIRA_ya);
+            i += 3;
+            break;
+        case HIRA_CHU:
+            kana.innerHTML += unitohtml(HIRA_CHI);
+            kana.innerHTML += unitohtml(HIRA_yu);
+            i += 3;
+            break;
+        case HIRA_CHO:
+            kana.innerHTML += unitohtml(HIRA_CHI);
+            kana.innerHTML += unitohtml(HIRA_yo);
+            i += 3;
+            break;
+        case KATA_CHA:
+            kana.innerHTML += unitohtml(KATA_CHI);
+            kana.innerHTML += unitohtml(KATA_ya);
+            i += 3;
+            break;
+        case KATA_CHU:
+            kana.innerHTML += unitohtml(KATA_CHI);
+            kana.innerHTML += unitohtml(KATA_yu);
+            i += 3;
+            break;
+        case KATA_CHE:
+            kana.innerHTML += unitohtml(KATA_CHI);
+            kana.innerHTML += unitohtml(KATA_e);
+            i += 3;
+            break;
+        case KATA_CHO:
+            kana.innerHTML += unitohtml(KATA_CHI);
+            kana.innerHTML += unitohtml(KATA_yo);
+            i += 3;
+            break;
+
         case KATA_DI:
             kana.innerHTML += unitohtml(KATA_DE);
             kana.innerHTML += unitohtml(KATA_i);

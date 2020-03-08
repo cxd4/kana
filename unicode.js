@@ -244,6 +244,10 @@ var KATA_yo = 96 + HIRA_yo;
 var KATA_ye = HIRA_ye + 0x0060;
 var KATA_yi = HIRA_yi + 0x0060;
 
+var HIRA_CHA = -10;
+var HIRA_CHU = -12;
+var HIRA_CHO = -14;
+
 var HIRA_JA = -80;
 var HIRA_JU = -82;
 var HIRA_JO = -84;
@@ -262,11 +266,17 @@ var KATA_FI = -7;
 var KATA_FU = KATA_HU;
 var KATA_FE = -8;
 var KATA_FO = -9;
-var KATA_TSA = -10;
-var KATA_TSI = -11;
-var KATA_FYU = -12;
-var KATA_TSE = -13;
-var KATA_TSO = -14;
+
+var KATA_CHA = -15;
+var KATA_CHU = -17;
+var KATA_CHE = -18;
+var KATA_CHO = -19;
+
+var KATA_TSA = -30;
+var KATA_TSI = -31;
+var KATA_FYU = -32;
+var KATA_TSE = -33;
+var KATA_TSO = -34;
 
 var KATA_DI = -40;
 var KATA_DYU = -49;
