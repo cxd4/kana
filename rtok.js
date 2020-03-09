@@ -85,25 +85,36 @@ function a_to_kana(syllable) {
         return null;
     }
 
-    ascii_in = 1;
+    ascii_in = 2;
     switch (syllable[0]) {
     case " ":
     case "_":
+        ascii_in = 1;
         return 32;
     case "-":
+        ascii_in = 1;
         return 0;
-    case ".":  return 0x3002;
-    case ",":  return 0x3001;
+    case ".":
+        ascii_in = 1;
+        return 0x3002;
+    case ",":
+        ascii_in = 1;
+        return 0x3001;
 
     case "a":
+        ascii_in = 1;
         return HIRA_A;
     case "i":
+        ascii_in = 1;
         return HIRA_I;
     case "u":
+        ascii_in = 1;
         return HIRA_U;
     case "e":
+        ascii_in = 1;
         return HIRA_E;
     case "o":
+        ascii_in = 1;
         return HIRA_O; /* We'll have to handle "wo" externally.... */
     case "n":
         var extension = sound_from_vowel(HIRA_NA, syllable[1], 1);
@@ -111,7 +122,6 @@ function a_to_kana(syllable) {
             ascii_in = 1;
             return HIRA_N;
         }
-        ascii_in = 2;
         return (extension);
 
 /*
@@ -125,14 +135,19 @@ function a_to_kana(syllable) {
  * context preserved in romaji by starting the romaji with capital letters.
  */
     case "A":
+        ascii_in = 1;
         return KATA_A;
     case "I":
+        ascii_in = 1;
         return KATA_I;
     case "U":
+        ascii_in = 1;
         return KATA_U;
     case "E":
+        ascii_in = 1;
         return KATA_E;
     case "O":
+        ascii_in = 1;
         return KATA_O;
     case "N":
         var extension = sound_from_vowel(KATA_NA, tolower(syllable[1]), 1);
@@ -140,7 +155,6 @@ function a_to_kana(syllable) {
             ascii_in = 1;
             return KATA_N;
         }
-        ascii_in = 2;
         return (extension);
 
 /*
@@ -148,7 +162,6 @@ function a_to_kana(syllable) {
  * These sounds are not native Japanese and do not exist in hiragana.
  */
     case "D":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
         case "I":  return KATA_DI;
         case "Y":
@@ -160,7 +173,6 @@ function a_to_kana(syllable) {
         case "U":  return 0;
         }
     case "F":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
         case "A":  return KATA_FA;
         case "I":  return KATA_FI;
@@ -174,7 +186,6 @@ function a_to_kana(syllable) {
         }
         return ERR_BROKEN_ROMAJI;
     case "T":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
         case "I":  return KATA_TI;
         case "S":
@@ -197,7 +208,6 @@ function a_to_kana(syllable) {
         }
         return 0;
     case "V":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
         case "U":  return KATA_VU; /* Native Japanese speakers use "BU" */
         case "A":  return KATA_VA;
@@ -207,7 +217,6 @@ function a_to_kana(syllable) {
         }
         return 0;
     case "W":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
         case "I":  return KATA_WI;
         case "E":  return KATA_WE;
@@ -224,13 +233,10 @@ function a_to_kana(syllable) {
  */
     case "d":
         var base = sound_from_vowel(HIRA_DA, syllable[1], 2);
-        ascii_in = 2;
         return (base > HIRA_DI ? base + 1 : base);
     case "f":
-        ascii_in = 2;
         return (syllable[1] == "u" ? HIRA_FU : 0);
     case "t":
-        ascii_in = 2;
         switch (syllable[1]) {
         case "a":  return HIRA_TA;
         case "s":
@@ -241,7 +247,6 @@ function a_to_kana(syllable) {
         }
         return 0;
     case "w":
-        ascii_in = 2;
         switch (syllable[1]) {
         case "a":  return HIRA_WA;
         case "i":  return HIRA_WI;
@@ -257,14 +262,11 @@ function a_to_kana(syllable) {
  * simple to implement (except for that fucking 'N' sound maybe... to do).
  */
     case "k":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_KA, syllable[1], 2);
     case "K":
-        ascii_in = 2;
         return sound_from_vowel(KATA_KA, tolower(syllable[1]), 2);
 
     case "s":
-        ascii_in = 2;
         switch (syllable[1]) {
         case "a":  return HIRA_SA;
         case "h":
@@ -289,7 +291,6 @@ function a_to_kana(syllable) {
         }
         return 0;
     case "S":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
         case "A":  return KATA_SA;
         case "H":
@@ -342,34 +343,27 @@ function a_to_kana(syllable) {
         return 0;
 
     case "h":
-        ascii_in = 2;
         if (combo_ext) {
             return combo_from_vowel(syllable[1], 0);
         }
         return sound_from_vowel(HIRA_HA, syllable[1], 3);
     case "H":
-        ascii_in = 2;
         if (combo_ext) {
             return combo_from_vowel(tolower(syllable[1]), 1);
         }
         return sound_from_vowel(KATA_HA, tolower(syllable[1]), 3);
 
     case "m":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_MA, syllable[1], 1);
     case "M":
-        ascii_in = 2;
         return sound_from_vowel(KATA_MA, tolower(syllable[1]), 1);
 
     case "r":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_RA, syllable[1], 1);
     case "R":
-        ascii_in = 2;
         return sound_from_vowel(KATA_RA, tolower(syllable[1]), 1);
 
     case "y":
-        ascii_in = 2;
         if (combo_ext) {
             return combo_from_vowel(syllable[1], 0);
         }
@@ -382,7 +376,6 @@ function a_to_kana(syllable) {
         }
         return 0;
     case "Y":
-        ascii_in = 2;
         if (combo_ext) {
             return combo_from_vowel(tolower(syllable[1]), 1);
         }
@@ -396,32 +389,23 @@ function a_to_kana(syllable) {
         return 0;
 
     case "g":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_GA, syllable[1], 2);
     case "G":
-        ascii_in = 2;
         return sound_from_vowel(KATA_GA, tolower(syllable[1]), 2);
     case "z":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_ZA, syllable[1], 2);
     case "Z":
-        ascii_in = 2;
         return sound_from_vowel(KATA_ZA, tolower(syllable[1]), 2);
     case "b":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_BA, syllable[1], 3);
     case "B":
-        ascii_in = 2;
         return sound_from_vowel(KATA_BA, tolower(syllable[1]), 3);
     case "p":
-        ascii_in = 2;
         return sound_from_vowel(HIRA_PA, syllable[1], 3);
     case "P":
-        ascii_in = 2;
         return sound_from_vowel(KATA_PA, tolower(syllable[1]), 3);
 
     case "j":
-        ascii_in = 2;
         switch (syllable[1]) {
             case "a":  return HIRA_JA;
             case "i":  return HIRA_JI;
@@ -431,7 +415,6 @@ function a_to_kana(syllable) {
         }
         return 0;
     case "J":
-        ascii_in = 2;
         switch (toupper(syllable[1])) {
             case "A":  return KATA_JA;
             case "I":  return KATA_JI;
