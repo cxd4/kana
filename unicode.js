@@ -283,7 +283,8 @@ var KATA_DYU = -49;
 
 function unitohtml(code_point) {
     "use strict";
-    return ("&#" + code_point + ";");
+    /* return ("&#" + code_point + ";"); */
+    return String.fromCharCode(code_point);
 }
 function toupper(letter) {
     "use strict";
