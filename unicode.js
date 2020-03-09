@@ -93,7 +93,7 @@ var HIRA_GO = HIRA_KO + 1;
 var HIRA_ZA = HIRA_SA + 1;
 var HIRA_JI = HIRA_SHI + 1;
 var HIRA_ZU = HIRA_SU + 1;
-var HIRA_JE = HIRA_SE + 1;
+//var HIRA_JE = HIRA_SE + 1;
 var HIRA_ZO = HIRA_SO + 1;
 
 var HIRA_DA = HIRA_TA + 1;
@@ -195,11 +195,11 @@ var KATA_GO = 96 + HIRA_GO;
 var KATA_ZA = 96 + HIRA_ZA;
 var KATA_JI = 96 + HIRA_JI;
 var KATA_ZU = 96 + HIRA_ZU;
-var KATA_JE = 96 + HIRA_JE;
+//var KATA_JE = 96 + HIRA_JE;
 var KATA_ZO = 96 + HIRA_ZO;
 
 var KATA_DA = 96 + HIRA_DA;
-var KATA_DI = 96 + HIRA_DI;
+//var KATA_DI = 96 + HIRA_DI;
 var KATA_DU = 96 + HIRA_DU;
 var KATA_DE = 96 + HIRA_DE;
 var KATA_DO = 96 + HIRA_DO;
@@ -248,6 +248,10 @@ var HIRA_CHA = -10;
 var HIRA_CHU = -12;
 var HIRA_CHO = -14;
 
+var HIRA_SHA = -20;
+var HIRA_SHU = -22;
+var HIRA_SHO = -24;
+
 var HIRA_JA = -80;
 var HIRA_JU = -82;
 var HIRA_JO = -84;
@@ -272,14 +276,25 @@ var KATA_CHU = -17;
 var KATA_CHE = -18;
 var KATA_CHO = -19;
 
+var KATA_SHA = -25;
+var KATA_SHU = -27;
+var KATA_SHE = -28;
+var KATA_SHO = -29;
+
 var KATA_TSA = -30;
 var KATA_TSI = -31;
 var KATA_FYU = -32;
 var KATA_TSE = -33;
 var KATA_TSO = -34;
 
-var KATA_DI = -40;
+var KATA_TI = -40;
+var KATA_DI = -45;
 var KATA_DYU = -49;
+
+var KATA_JA = -85;
+var KATA_JU = -87;
+var KATA_JE = -88;
+var KATA_JO = -89;
 
 function unitohtml(code_point) {
     "use strict";
@@ -317,12 +332,16 @@ function user_romaji() {
 
     offset1 = href.indexOf("?" + "a" + "=");
     offset2 = href.lastIndexOf("&" + "a" + "=");
-    offset = (offset1 < offset2) ? offset2 : offset1;
+    offset = (
+        offset1 < offset2
+        ? offset2
+        : offset1
+    );
 
     if (offset < 0) {
         return;
     }
-    offset += 1 + "a".length + 1; /* Jump past ?/&, (name), and '='. */
+    offset += 3; /* Jump past ?/&, (name), and '='. */
     offset2 = href.indexOf("&", offset);
     if (offset2 < 0) {
         offset2 = href.length;

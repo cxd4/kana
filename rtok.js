@@ -22,13 +22,30 @@
 function is_single(letter) {
     "use strict";
     switch (letter) {
-        case "A": case "a":
-        case "I": case "i":
-        case "U": case "u":
-        case "E": case "e":
-        case "O": case "o":
-        case "N": case "n": /* singles = vowels + the `n' consonant */
-            return true;
+    case "A":
+        return true;
+    case "a":
+        return true;
+    case "I":
+        return true;
+    case "i":
+        return true;
+    case "U":
+        return true;
+    case "u":
+        return true;
+    case "E":
+        return true;
+    case "e":
+        return true;
+    case "O":
+        return true;
+    case "o":
+        return true;
+    case "N":
+        return true;
+    case "n": /* singles = vowels + the `n' consonant */
+        return true;
     }
     return false;
 }
@@ -41,6 +58,8 @@ function sound_from_vowel(consonant, vowel, gap) {
     switch (vowel) {
     case "a":
         return (consonant);
+    case "i":
+        return (consonant + 1 * gap);
     case "u":
         return (consonant + 2 * gap);
     case "e":
@@ -50,8 +69,6 @@ function sound_from_vowel(consonant, vowel, gap) {
 
     case "y": /* ...and sometimes I use 'Y', too. :) */
         combo_ext = true;
-        /* Fall through. */
-    case "i":
         return (consonant + 1 * gap);
     }
     return 0;
@@ -80,10 +97,7 @@ function combo_from_vowel(ext, kata_flag) {
 var ascii_in = 0;
 function a_to_kana(syllable) {
     "use strict";
-    ascii_in = 0;
-    if (syllable == null) {
-        return null;
-    }
+    var extension;
 
     ascii_in = 2;
     switch (syllable[0]) {
@@ -117,7 +131,7 @@ function a_to_kana(syllable) {
         ascii_in = 1;
         return HIRA_O; /* We'll have to handle "wo" externally.... */
     case "n":
-        var extension = sound_from_vowel(HIRA_NA, syllable[1], 1);
+        extension = sound_from_vowel(HIRA_NA, syllable[1], 1);
         if (extension === 0) {
             ascii_in = 1;
             return HIRA_N;
@@ -150,7 +164,7 @@ function a_to_kana(syllable) {
         ascii_in = 1;
         return KATA_O;
     case "N":
-        var extension = sound_from_vowel(KATA_NA, tolower(syllable[1]), 1);
+        extension = sound_from_vowel(KATA_NA, tolower(syllable[1]), 1);
         if (extension === 0) {
             ascii_in = 1;
             return KATA_N;
@@ -163,67 +177,102 @@ function a_to_kana(syllable) {
  */
     case "D":
         switch (toupper(syllable[1])) {
-        case "I":  return KATA_DI;
+        case "I":
+            return KATA_DI;
         case "Y":
             ascii_in = 3;
-            return (toupper(syllable[2]) === "U" ? KATA_DYU : 0);
-        case "A":  return KATA_DA;
-        case "E":  return KATA_DE;
-        case "O":  return KATA_DO;
-        case "U":  return 0;
+            return (
+                toupper(syllable[2]) === "U"
+                ? KATA_DYU
+                : 0
+            );
+        case "A":
+            return KATA_DA;
+        case "E":
+            return KATA_DE;
+        case "O":
+            return KATA_DO;
         }
+        return 0;
     case "F":
         switch (toupper(syllable[1])) {
-        case "A":  return KATA_FA;
-        case "I":  return KATA_FI;
-        case "E":  return KATA_FE;
-        case "O":  return KATA_FO;
+        case "A":
+            return KATA_FA;
+        case "I":
+            return KATA_FI;
+        case "E":
+            return KATA_FE;
+        case "O":
+            return KATA_FO;
 
         case "Y":
             ascii_in = 3;
-            return (toupper(syllable[2]) == "U" ? KATA_FYU : 0);
-        case "U":  return KATA_FU; /* DOES exist in hiragana ("hu") */
+            return (
+                toupper(syllable[2]) === "U"
+                ? KATA_FYU
+                : 0
+            );
+        case "U":
+            return KATA_FU; /* DOES exist in hiragana ("hu") */
         }
-        return ERR_BROKEN_ROMAJI;
+        return 0;
     case "T":
         switch (toupper(syllable[1])) {
-        case "I":  return KATA_TI;
+        case "I":
+            return KATA_TI;
         case "S":
             ascii_in = 3;
             switch (toupper(syllable[2])) {
-            case "A":  return KATA_TSA;
-            case "I":  return KATA_TSI;
-            case "E":  return KATA_TSE;
-            case "O":  return KATA_TSO;
+            case "A":
+                return KATA_TSA;
+            case "I":
+                return KATA_TSI;
+            case "E":
+                return KATA_TSE;
+            case "O":
+                return KATA_TSO;
 
-            case "U":  return KATA_TSU; /* DOES exist in hiragana */
-            default:  return 0;
+            case "U":
+                return KATA_TSU; /* DOES exist in hiragana */
             }
+            return 0;
 
     /* The rest of these all exist as native sounds also in hiragana. */
-        case "A":  return KATA_TA;
-        case "E":  return KATA_TE;
-        case "O":  return KATA_TO;
-        case "U":  return 0;
+        case "A":
+            return KATA_TA;
+        case "E":
+            return KATA_TE;
+        case "O":
+            return KATA_TO;
         }
         return 0;
     case "V":
         switch (toupper(syllable[1])) {
-        case "U":  return KATA_VU; /* Native Japanese speakers use "BU" */
-        case "A":  return KATA_VA;
-        case "I":  return KATA_VI;
-        case "E":  return KATA_VE;
-        case "O":  return KATA_VO;
+        case "U":
+            return KATA_VU; /* Native Japanese speakers use "BU" */
+        case "A":
+            return KATA_VA;
+        case "I":
+            return KATA_VI;
+        case "E":
+            return KATA_VE;
+        case "O":
+            return KATA_VO;
         }
         return 0;
     case "W":
         switch (toupper(syllable[1])) {
-        case "I":  return KATA_WI;
-        case "E":  return KATA_WE;
-        case "O":  return KATA_W_O;
+        case "I":
+            return KATA_WI;
+        case "E":
+            return KATA_WE;
+        case "O":
+            return KATA_W_O;
 
-        case "A":  return KATA_WA; /* DOES exist in hiragana */
-        case "U":  return KATA_WU;
+        case "A":
+            return KATA_WA; /* DOES exist in hiragana */
+        case "U":
+            return KATA_WU;
         }
         return 0;
 
@@ -232,27 +281,47 @@ function a_to_kana(syllable) {
  * sounds actually present in the Japanese language.
  */
     case "d":
-        var base = sound_from_vowel(HIRA_DA, syllable[1], 2);
-        return (base > HIRA_DI ? base + 1 : base);
+        extension = sound_from_vowel(HIRA_DA, syllable[1], 2);
+        return (
+            extension > HIRA_DI
+            ? extension + 1
+            : extension
+        );
     case "f":
-        return (syllable[1] == "u" ? HIRA_FU : 0);
+        return (
+            syllable[1] === "u"
+            ? HIRA_FU
+            : 0
+        );
     case "t":
         switch (syllable[1]) {
-        case "a":  return HIRA_TA;
+        case "a":
+            return HIRA_TA;
         case "s":
             ascii_in = 3;
-            return (syllable[2] == "u" ? HIRA_TSU : 0);
-        case "e":  return HIRA_TE;
-        case "o":  return HIRA_TO;
+            return (
+                syllable[2] === "u"
+                ? HIRA_TSU
+                : 0
+            );
+        case "e":
+            return HIRA_TE;
+        case "o":
+            return HIRA_TO;
         }
         return 0;
     case "w":
         switch (syllable[1]) {
-        case "a":  return HIRA_WA;
-        case "i":  return HIRA_WI;
-        case "u":  return HIRA_WU;
-        case "e":  return HIRA_WE;
-        case "o":  return HIRA_W_O; /* deprecated; use " o " with spaces */
+        case "a":
+            return HIRA_WA;
+        case "i":
+            return HIRA_WI;
+        case "u":
+            return HIRA_WU;
+        case "e":
+            return HIRA_WE;
+        case "o":
+            return HIRA_W_O; /* deprecated; use " o " with spaces */
         }
         return 0;
 
@@ -268,7 +337,8 @@ function a_to_kana(syllable) {
 
     case "s":
         switch (syllable[1]) {
-        case "a":  return HIRA_SA;
+        case "a":
+            return HIRA_SA;
         case "h":
             ascii_in = 3;
             switch (syllable[2]) {
@@ -284,15 +354,18 @@ function a_to_kana(syllable) {
                 return HIRA_SHO;
             }
             return 0;
-        case "i":  return ERR_LOST_SYLLABLE;
-        case "u":  return HIRA_SU;
-        case "e":  return HIRA_SE;
-        case "o":  return HIRA_SO;
+        case "u":
+            return HIRA_SU;
+        case "e":
+            return HIRA_SE;
+        case "o":
+            return HIRA_SO;
         }
         return 0;
     case "S":
         switch (toupper(syllable[1])) {
-        case "A":  return KATA_SA;
+        case "A":
+            return KATA_SA;
         case "H":
             ascii_in = 3;
             switch (toupper(syllable[2])) {
@@ -308,10 +381,12 @@ function a_to_kana(syllable) {
                 return KATA_SHO;
             }
             return 0;
-        case "I":  return ERR_LOST_SYLLABLE;
-        case "U":  return KATA_SU;
-        case "E":  return KATA_SE;
-        case "O":  return KATA_SO;
+        case "U":
+            return KATA_SU;
+        case "E":
+            return KATA_SE;
+        case "O":
+            return KATA_SO;
         }
         return 0;
 
@@ -321,11 +396,16 @@ function a_to_kana(syllable) {
             return 0;
         }
         switch (syllable[2]) {
-        case "a":  return HIRA_CHA;
-        case "i":  return HIRA_CHI;
-        case "u":  return HIRA_CHU;
-        case "e":  return 0;
-        case "o":  return HIRA_CHO;
+        case "a":
+            return HIRA_CHA;
+        case "i":
+            return HIRA_CHI;
+        case "u":
+            return HIRA_CHU;
+        case "e":
+            return 0;
+        case "o":
+            return HIRA_CHO;
         }
         return 0;
     case "C":
@@ -334,11 +414,16 @@ function a_to_kana(syllable) {
             return 0;
         }
         switch (toupper(syllable[2])) {
-        case "A":  return KATA_CHA;
-        case "I":  return KATA_CHI;
-        case "U":  return KATA_CHU;
-        case "E":  return KATA_CHE;
-        case "O":  return KATA_CHO;
+        case "A":
+            return KATA_CHA;
+        case "I":
+            return KATA_CHI;
+        case "U":
+            return KATA_CHU;
+        case "E":
+            return KATA_CHE;
+        case "O":
+            return KATA_CHO;
         }
         return 0;
 
@@ -368,11 +453,16 @@ function a_to_kana(syllable) {
             return combo_from_vowel(syllable[1], 0);
         }
         switch (syllable[1]) {
-        case "a":  return HIRA_YA;
-        case "i":  return HIRA_YI;
-        case "u":  return HIRA_YU;
-        case "e":  return HIRA_YE;
-        case "o":  return HIRA_YO;
+        case "a":
+            return HIRA_YA;
+        case "i":
+            return HIRA_YI;
+        case "u":
+            return HIRA_YU;
+        case "e":
+            return HIRA_YE;
+        case "o":
+            return HIRA_YO;
         }
         return 0;
     case "Y":
@@ -380,11 +470,16 @@ function a_to_kana(syllable) {
             return combo_from_vowel(tolower(syllable[1]), 1);
         }
         switch (toupper(syllable[1])) {
-        case "A":  return KATA_YA;
-        case "I":  return KATA_YI;
-        case "U":  return KATA_YU;
-        case "E":  return KATA_YE;
-        case "O":  return KATA_YO;
+        case "A":
+            return KATA_YA;
+        case "I":
+            return KATA_YI;
+        case "U":
+            return KATA_YU;
+        case "E":
+            return KATA_YE;
+        case "O":
+            return KATA_YO;
         }
         return 0;
 
@@ -407,27 +502,35 @@ function a_to_kana(syllable) {
 
     case "j":
         switch (syllable[1]) {
-            case "a":  return HIRA_JA;
-            case "i":  return HIRA_JI;
-            case "u":  return HIRA_JU;
-            case "e":  return HIRA_JE;
-            case "o":  return HIRA_JO;
+        case "a":
+            return HIRA_JA;
+        case "i":
+            return HIRA_JI;
+        case "u":
+            return HIRA_JU;
+        case "o":
+            return HIRA_JO;
         }
         return 0;
     case "J":
         switch (toupper(syllable[1])) {
-            case "A":  return KATA_JA;
-            case "I":  return KATA_JI;
-            case "U":  return KATA_JU;
-            case "E":  return KATA_JE;
-            case "O":  return KATA_JO;
+        case "A":
+            return KATA_JA;
+        case "I":
+            return KATA_JI;
+        case "U":
+            return KATA_JU;
+        case "E":
+            return KATA_JE;
+        case "O":
+            return KATA_JO;
         }
         return 0;
     }
     return 0;
 }
 
-function rtok(ascii) {
+function rtok() {
     "use strict";
     var i = 0;
     var x1 = -1;
@@ -437,12 +540,13 @@ function rtok(ascii) {
     var mlif = document;
     var ascii = mlif.getElementById("romaji").value;
     var kana = mlif.getElementById("kana");
+    var katakana_flag;
 
     while (!(toupper(ascii[i]) >= "A" && toupper(ascii[i]) <= "Z")) {
         i += 1;
     }
     while (i < ascii.length) {
-        var katakana_flag = false;
+        katakana_flag = false;
         if (!(toupper(ascii[i]) >= "A" && toupper(ascii[i]) <= "Z")) {
             x2 = x1;
             while (x1 < i) {
@@ -457,7 +561,7 @@ function rtok(ascii) {
                     x2 += 1;
                 }
             }
-        } else if (toupper(ascii[i]) >= "A" && toupper(ascii[i]) <= "Z" && x1 < 0) {
+        } else if (x1 < 0) {
             x1 = i;
         }
         i += 1;
@@ -473,7 +577,6 @@ function rtok(ascii) {
                 kana.innerHTML += unitohtml(HIRA_tsu);
             }
             i += 1;
-            continue;
         }
 
         codepoint = a_to_kana(ascii.substring(i));
@@ -671,7 +774,7 @@ function rtok(ascii) {
             break;
 
         default:
-            if (codepoint == 0) {
+            if (codepoint === 0) {
                 if (ascii[i] === "\n") {
                     kana.innerHTML += "<br>";
                 } else if (ascii[i] !== "-") {
@@ -680,7 +783,11 @@ function rtok(ascii) {
                 i += 1;
             } else {
                 kana.innerHTML += unitohtml(codepoint);
-                i += (combo_ext ? 1 : ascii_in);
+                i += (
+                    combo_ext
+                    ? 1
+                    : ascii_in
+                );
             }
         }
     }
