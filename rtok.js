@@ -703,6 +703,26 @@ function rtok() {
             kana.innerHTML += unitohtml(HIRA_yo);
             i += 2;
             break;
+        case KATA_JA:
+            kana.innerHTML += unitohtml(KATA_JI);
+            kana.innerHTML += unitohtml(KATA_ya);
+            i += 2;
+            break;
+        case KATA_JU:
+            kana.innerHTML += unitohtml(KATA_JI);
+            kana.innerHTML += unitohtml(KATA_yu);
+            i += 2;
+            break;
+        case KATA_JO:
+            kana.innerHTML += unitohtml(KATA_JI);
+            kana.innerHTML += unitohtml(KATA_yo);
+            i += 2;
+            break;
+        case KATA_JE:
+            kana.innerHTML += unitohtml(KATA_JI);
+            kana.innerHTML += unitohtml(KATA_e);
+            i += 2;
+            break;
 
         case KATA_FA:
             kana.innerHTML += unitohtml(KATA_FU);
