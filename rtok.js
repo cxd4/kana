@@ -114,6 +114,18 @@ function a_to_kana(syllable) {
     case ",":
         ascii_in = 1;
         return 0x3001;
+    case "[":
+        ascii_in = 1;
+        return 0x300C;
+    case "]":
+        ascii_in = 1;
+        return 0x300D;
+    case "(":
+        ascii_in = 1;
+        return 0x300E;
+    case ")":
+        ascii_in = 1;
+        return 0x300F;
 
     case "a":
         ascii_in = 1;
