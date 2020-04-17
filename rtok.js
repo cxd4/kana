@@ -554,6 +554,7 @@ function rtok() {
     var kana = mlif.getElementById("kana");
     var katakana_flag;
 
+/*
     while (!(toupper(ascii[i]) >= "A" && toupper(ascii[i]) <= "Z")) {
         i += 1;
     }
@@ -578,6 +579,7 @@ function rtok() {
         }
         i += 1;
     }
+*/
 
     kana.innerHTML = "";
     i = 0;
