@@ -304,10 +304,16 @@ function unitohtml(code_point) {
 }
 function toupper(letter) {
     "use strict";
+    if (letter === undefined) { /* Sometimes we lazily read out of bounds. */
+        return null;
+    }
     return letter.toUpperCase();
 }
 function tolower(letter) {
     "use strict";
+    if (letter === undefined) { /* Sometimes we lazily read out of bounds. */
+        return null;
+    }
     return letter.toLowerCase();
 }
 function setCharAt(str, index, chr) {
