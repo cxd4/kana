@@ -288,6 +288,7 @@ var KATA_TSE = -33;
 var KATA_TSO = -34;
 
 var KATA_TI = -40;
+var KATA_TU = -44;
 var KATA_DI = -45;
 var KATA_DYU = -49;
 

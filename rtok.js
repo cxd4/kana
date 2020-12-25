@@ -256,6 +256,9 @@ function a_to_kana(syllable) {
             return KATA_TE;
         case "O":
             return KATA_TO;
+
+        case "U":
+            return KATA_TU; /* unusual but can rarely be encountered */
         }
         return 0;
     case "V":
@@ -756,6 +759,12 @@ function rtok() {
         case KATA_FO:
             kana.innerHTML += unitohtml(KATA_FU);
             kana.innerHTML += unitohtml(KATA_o);
+            i += 2;
+            break;
+
+        case KATA_TU:
+            kana.innerHTML += unitohtml(KATA_TO);
+            kana.innerHTML += unitohtml(KATA_u);
             i += 2;
             break;
         case KATA_WA:
