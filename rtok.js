@@ -391,7 +391,7 @@ function a_to_kana(syllable) {
             case "U":
                 return KATA_SHU;
             case "E":
-                return 0;
+                return KATA_SHE;
             case "O":
                 return KATA_SHO;
             }
@@ -659,6 +659,42 @@ function rtok() {
 /*
  * The remainder of the switch is to adjust for combo letters.
  */
+        case HIRA_SHA:
+            kana.innerHTML += unitohtml(HIRA_SHI);
+            kana.innerHTML += unitohtml(HIRA_ya);
+            i += 3;
+            break;
+        case HIRA_SHU:
+            kana.innerHTML += unitohtml(HIRA_SHI);
+            kana.innerHTML += unitohtml(HIRA_yu);
+            i += 3;
+            break;
+        case HIRA_SHO:
+            kana.innerHTML += unitohtml(HIRA_SHI);
+            kana.innerHTML += unitohtml(HIRA_yo);
+            i += 3;
+            break;
+        case KATA_SHA:
+            kana.innerHTML += unitohtml(KATA_SHI);
+            kana.innerHTML += unitohtml(KATA_ya);
+            i += 3;
+            break;
+        case KATA_SHU:
+            kana.innerHTML += unitohtml(KATA_SHI);
+            kana.innerHTML += unitohtml(KATA_yu);
+            i += 3;
+            break;
+        case KATA_SHE:
+            kana.innerHTML += unitohtml(KATA_SHI);
+            kana.innerHTML += unitohtml(KATA_e);
+            i += 3;
+            break;
+        case KATA_SHO:
+            kana.innerHTML += unitohtml(KATA_SHI);
+            kana.innerHTML += unitohtml(KATA_yo);
+            i += 3;
+            break;
+
         case HIRA_CHA:
             kana.innerHTML += unitohtml(HIRA_CHI);
             kana.innerHTML += unitohtml(HIRA_ya);
