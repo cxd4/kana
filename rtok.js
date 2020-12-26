@@ -126,6 +126,8 @@ function a_to_kana(syllable) {
     case ")":
         ascii_in = 1;
         return 0x300F;
+    case "@": /* experimental support for very basic kanji */
+        return -4096;
 
     case "a":
         ascii_in = 1;
@@ -598,6 +600,23 @@ function rtok() {
 
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
+        case -4096: /* extremely basic kanji support */
+            codepoint = ascii.charAt(i);
+            ascii_in = ascii.substring(i + 1).indexOf(codepoint);
+            if (ascii_in < 0) {
+                ascii_in = 1;
+                i += ascii_in;
+                break;
+            }
+            codepoint = kanji_extract(ascii.substring(i + 1, i + ascii_in + 1));
+            if (codepoint === undefined) { /* not found in kanji dictionary */
+                i += 1;
+                break; /* Resume execution in kana-only mode until next hit. */
+            }
+            kana.innerHTML += codepoint;
+            i += ascii_in + 1;
+            break;
+
         case 32:
             i += 1;
             if (ascii[i - 2] < "A" || ascii[i - 2] > "Z") {
