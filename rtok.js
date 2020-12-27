@@ -126,8 +126,14 @@ function a_to_kana(syllable) {
     case ")":
         ascii_in = 1;
         return 0x300F;
-    case "@": /* experimental support for very basic kanji */
+
+/*
+ * Experimental support for very basic kanji.
+ */
+    case "|": /* single-kanji parser mode */
         return -4096;
+    case "{": /* multi-character kanji-based vocabulary */
+        return -4097;
 
     case "a":
         ascii_in = 1;
@@ -603,21 +609,35 @@ function rtok() {
 
         codepoint = a_to_kana(ascii.substring(i));
         switch (codepoint) {
-        case -4096: /* extremely basic kanji support */
-            codepoint = ascii.charAt(i);
+        case -4096:
+        case -4097: /* extremely basic kanji vocabulary */
+            codepoint = (
+                codepoint === -4096
+                ? "|"
+                : "}"
+            );
             ascii_in = ascii.substring(i + 1).indexOf(codepoint);
             if (ascii_in < 0) {
                 ascii_in = 1;
                 i += ascii_in;
                 break;
             }
-            codepoint = kanji_extract(ascii.substring(i + 1, i + ascii_in + 1));
+            if (codepoint === "|") {
+                codepoint = kanji_extract(
+                    ascii.substring(i + 1, i + ascii_in + 1)
+                );
+            } else {
+                codepoint = vocab_extract(
+                    ascii.substring(i + 1, i + ascii_in + 1)
+                );
+            }
+
             if (codepoint === undefined) { /* not found in kanji dictionary */
                 i += 1;
                 break; /* Resume execution in kana-only mode until next hit. */
             }
             kana.innerHTML += codepoint;
-            i += ascii_in + 1;
+            i += ascii_in + 2;
             break;
 
         case 32:
