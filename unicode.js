@@ -275,6 +275,7 @@ var KATA_CHA = -15;
 var KATA_CHU = -17;
 var KATA_CHE = -18;
 var KATA_CHO = -19;
+var KATA_DYU = -20;
 
 var KATA_SHA = -25;
 var KATA_SHU = -27;
@@ -290,7 +291,7 @@ var KATA_TSO = -34;
 var KATA_TI = -40;
 var KATA_TU = -44;
 var KATA_DI = -45;
-var KATA_DYU = -49;
+var KATA_DU = -49;
 
 var KATA_JA = -85;
 var KATA_JU = -87;
