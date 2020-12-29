@@ -619,22 +619,25 @@ function rtok() {
         switch (codepoint) {
         case -4096:
         case -4097: /* extremely basic kanji vocabulary */
-            codepoint = (
-                codepoint === -4096
-                ? "|"
-                : "}"
-            );
-            ascii_in = ascii.substring(i + 1).indexOf(codepoint);
-            if (ascii_in < 0) {
-                ascii_in = 1;
-                i += ascii_in;
-                break;
-            }
-            if (codepoint === "|") {
+            if (codepoint === -4096) {
+                ascii_in = ascii.substring(i + 1).indexOf(ascii.charAt(i));
+                if (ascii_in < 0) {
+                    i += 1;
+                    break;
+                }
                 codepoint = kanji_extract(
                     ascii.substring(i + 1, i + ascii_in + 1)
                 );
             } else {
+                codepoint = ascii.charAt(i);
+                if (codepoint === "{") {
+                    codepoint = "}";
+                }
+                ascii_in = ascii.substring(i + 1).indexOf(codepoint);
+                if (ascii_in < 0) {
+                    i += 1;
+                    break;
+                }
                 codepoint = vocab_extract(
                     ascii.substring(i + 1, i + ascii_in + 1)
                 );
