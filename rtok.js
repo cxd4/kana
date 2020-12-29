@@ -131,8 +131,12 @@ function a_to_kana(syllable) {
  * Experimental support for very basic kanji.
  */
     case "|": /* single-kanji parser mode */
+    case "+":
+    case "=":
         return -4096;
     case "{": /* multi-character kanji-based vocabulary */
+    case "*":
+    case "%":
         return -4097;
 
     case "a":

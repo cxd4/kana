@@ -60,6 +60,8 @@ function kanji_xcode(ascii) {
         return 0x4EBA; /* N5 1st grade rank 5 "person" */
     case "~ji":
         return 0x6642; /* N5 2nd grade rank 16 "time, hour" */
+    case "yen":
+        return 0x5186; /* N5 1st grade rank 69 "yen, circle/round" */
     case "~go":
         return 0x8A9E; /* N5 2nd grade rank 301 "word/speech/lang" */
     case "-ji":
@@ -125,6 +127,16 @@ function kanji_xcode(ascii) {
         return 0x50CD; /* N3 4th grade rank 417 "work" */
     case "atama":
         return 0x982D; /* N3 2nd grade rank 433 "head, animal ctr" */
+    case "moku":
+        return 0x6728; /* N5 1st grade rank 317 "wood, tree" */
+    case "ka-":
+        return 0x706B; /* N5 1st grade rank 574 "fire" */
+    case "do-":
+        return 0x571F; /* N5 1st grade rank 307 "earth, ground/soil..." */
+    case "kin":
+        return 0x91D1; /* N5 1st grade rank 53 "gold (metal)" */
+    case "mizu":
+        return 0x6C34; /* N5 1st grade rank 223 "water" */
     case "otouto":
         return 0x5F1F; /* N4 2nd grade rank 1161 "younger brother" */
     case "imouto":
@@ -154,6 +166,8 @@ function kanji_xcode(ascii) {
         return 0x9AA8; /* N2 6th grade rank 936 "bone, remains..." */
     case "tawara":
         return 0x4FF5; /* N1 5th grade rank 1481 "sack, straw bag" */
+    case "kuso":
+        return 0x7CDE;
     case "NOMA":
         return 0x3005; /* kanji repetition mark */
     }
