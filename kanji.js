@@ -72,6 +72,10 @@ function kanji_xcode(ascii) {
         return 0x4E0B; /* N5 1st grade rank 97 "down, below..." */
     case "okona":
         return 0x884C; /* N5 2nd grade rank 20 "go, journey, ..." */
+    case "i-u":
+        return 0x8A00; /* N4 2nd grade rank 83 "say, word" */
+    case "omo-u":
+        return 0x601D; /* N4 2nd grade rank 132 "think" */
     case "yama":
         return 0x5C71; /* N5 1st grade rank 131 "mountain" */
     case "-mono": // rarely used without a prefix qualifier, hence the `-'
