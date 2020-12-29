@@ -108,6 +108,10 @@ function a_to_kana(syllable) {
     case "-":
         ascii_in = 1;
         return 0;
+    case ";":
+        ascii_in = 1;
+        return 0;
+
     case ".":
         ascii_in = 1;
         return 0x3002;
@@ -905,8 +909,8 @@ function rtok() {
 
         default:
             if (codepoint === 0) {
-                if (ascii[i] === "\n") {
-                    kana.innerHTML += "<br>";
+                if (ascii[i] === "\n" || ascii[i] === ";") {
+                    kana.innerText += "\n";
                 } else if (ascii[i] !== "-") {
                     kana.innerHTML += ascii[i];
                 }
@@ -923,6 +927,6 @@ function rtok() {
     }
     mlif.getElementById("ft").href = "https://translate.google.com/#view=home&";
     mlif.getElementById("ft").href += "op=translate&sl=ja&tl=en&text=";
-    mlif.getElementById("ft").href += kana.innerHTML;
+    mlif.getElementById("ft").href += kana.innerHTML.replace(/<br>/gi, "%0A");
     return;
 }
