@@ -3,7 +3,7 @@
  * JavaScript code in this file.
  *
  * Kanji from Romanization:  portable ASCII-to-kana conversion library
- * Copyright (C) 2020 rjs
+ * Copyright (C) 2020, 2021 rjs
  *
  * This program is free software:  you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -70,6 +70,11 @@ function kanji_xcode(ascii) {
         return 0x4E0A; /* N5 1st grade rank 35 "up, above..." */
     case "kuda":
         return 0x4E0B; /* N5 1st grade rank 97 "down, below..." */
+    case "mae":
+        return 0x524D; /* N5 2nd grade rank 27 "before, [in] front..." */
+    case "ushi-ro":
+    case "ato":
+        return 0x5F8C; /* N5 2nd grade rank 26 "before/behind, back, later" */
     case "okona":
         return 0x884C; /* N5 2nd grade rank 20 "go, journey, ..." */
     case "i-u":
@@ -98,6 +103,8 @@ function kanji_xcode(ascii) {
         return 0x5973; /* N1 1st grade rank 151 "woman, female" */
     case "otoko":
         return 0x7537; /* N1 1st grade rank 240 "man, male" */
+    case "-dai":
+        return 0x4EE3; /* N4 3rd grade rank 66 "age, replace, ..." */
     case "chika-": // usually either chikaku or chikai
         return 0x8FD1; /* N4 2nd grade rank 194 "nearby, akin..." */
     case "iro":
@@ -155,6 +162,9 @@ function kanji_xcode(ascii) {
         return 0x5931; /* N3 4th grade rank 447 "loss, fault, ..." */
     case "minato":
         return 0x6E2F; /* N3 3rd grade rank 495 "harbor (or port)" */
+    case "kano":
+    case "kare": // slightly less unique, may refer to more advanced kanji
+        return 0x5F7C; /* N3 joyo rank 648 "he [or 'that, the']" */
     case "uketamawa":
         return 0x627F; /* N2 5th grade rank 775 "acquiesce/hear... */
     case "yashina":
@@ -194,6 +204,10 @@ function vocab_extract(ascii) {
     "use strict";
 
     switch (ascii) {
+    case "gogo":
+        return (unitohtml(0x5348) + unitohtml(0x5F8C));
+    case "gozen":
+        return (unitohtml(0x5348) + unitohtml(0x524D));
     case "okane":
         return (unitohtml(HIRA_O) + unitohtml(0x91D1));
     case "oshiri":
